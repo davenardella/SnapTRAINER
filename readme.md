@@ -628,8 +628,386 @@ Sometimes it can be convenient to test the various modules without a PLC to chec
 
 This can be accomplished by placing SnapTRAINER in Modbus/TCP Slave mode on LocalHost address 127.0.0.1 and assigning registers in a "cross-over" manner between the modules, as in the figure.
 
-
 ![](img/loopback.png.png)
+
+
+# Industrial automation: first impact.
+
+Seeing a live assembly or test station can be disorienting at first glance. If this is running, the impression is of being faced with a system that is too difficult to understand, let alone implement.
+
+![](img/station.jpg)
+
+But this is, indeed, only the first impression. If we pause to observe the station calmly, we notice that many components have different shapes but are very similar and perform very simple movements, such as pneumatic cylinders that can only be extended or retracted.
+
+After a while, moreover, we realize that all movements follow a cyclic pattern-no component moves "at random," but does so in a certain sequence and always in concert with the others.
+
+Well, this behavior is governed by the control program hosted by the PLC and follows really very simple ground rules using a limited instruction set.
+
+Always remember: any discrete control system, no matter how complex, can always be broken down into many simpler parts.
+
+The **Black Death of Star Wars**, produced by Lego, consists of 3441 pieces, when we look at it we realize it is complex, but we know that in the end it is just bricks to be arranged in a specific order.
+
+![](img/morte_nera.jpg)
+
+# Control architecture
+
+A typical control architecture consists of a PLC, a programming PC housing the development system, a set of peripherals connected to the PLC via fieldbus, and possibly a set of input/output signals connected to local units on the PLC rack.
+
+![](img/plc_system.png)
+
+The peripherals, as mentioned earlier, represent the orchestra and are managed by the PLC through the control program.
+
+To the peripherals can be connected very very simple components, such as buttons and lamps, or, by means of valve packs, pneumatic cylinders; finally, there are complex peripherals, represented by test units or motors, which accept commands from the PLC and perform a task completely autonomously.
+
+Without going into the details of PLC programming, the process is quite intuitive: we write the program and compile it with the development system; then, we load it into the PLC and test it.
+
+# Cross-platform programming
+
+First, by platform I mean an ecosystem, that is, the set of PLCs and associated peripherals, such as HMIs, I/Os, Drivers, etc., all "compatible" at the hardware and management level.
+
+It is not mandatory that all components be of the same brand; this is generally the case for the larger systems, such as Siemens, which offers a wide range of PLCs and peripherals in its catalog, all of which can be managed with the same development system. Even in this, however, the use of several third-party peripherals is possible: any remote I/O that handles the Profinet protocol can be used with Siemens PLCs; on the contrary, for drives and brushless motors, unless you have a strong masochistic instinct, I would advise against using different brands.
+
+Smaller systems, on the other hand, focus on openness and compatibility; these are the only weapons that allow them to have a small catalog but still be present in the market.
+
+By cross-platform programming, then, I mean the ability to write a control program that can run, with little or no modification, on various platforms.
+
+It goes without saying that for this to happen, we need a reference standard.
+
+A standard is a document that contains a set of rules to be followed, guidelines and, in the case of complex systems (and this is the case), it also provides for various levels of compliance.
+
+The standard I am referring to is IEC61131-3, which is part of a family related to control systems.
+
+Specifically, it addresses the user-side software architecture of a PLC, identifies the resources involved, their allocation and execution, and finally identifies various programming languages that can be used by making their syntax explicit.
+
+Left out of this context are both hardware and operating system-level management, things that the manufacturer is free to implement as it sees fit.
+
+As mentioned, given the level of complexity, the standard establishes various levels of compliance, and explanatory examples (not very many) are also contained within it.
+
+Yes, but in reality, how are we doing?
+
+A somewhat trite answer would be: better than many years ago; in fact, although IEC61131-3 sees its birth in December 1993 and the recent version was issued in February 2013, it is only in the last few years that we have seen a real willingness on the part of manufacturers to support this standard. Even Rockwell issued a compliance document in March 2022.
+
+There are full-compliant PLCs, practically born or restructured to the standard, and others that have undergone transformation over time.
+
+I mention compliance levels to get an overview of the current situation, but it is important to emphasize that these should by no means be treated with an "accounting-financial" approach: barring borderline situations with very old or exotic hardware, it is always possible to write control programs that, if well structured, can be ported to various platforms.
+
+Learning to program a PLC does not mean learning all the secrets of TIA Portal or Codesys or other tools, me being able to think about a logical, structured flow, encapsulating in Function Blocks the components that have the same behavior.
+
+Implementation is the last step.
+
+Once we have learned the basics, we can move on to optimizing our programs and taking advantage of all the features made available by our daily-use platform.
+
+We will now discuss the three identified platforms, in light always of their use with SnapTRAINER, later we will look at two case studies implemented in cross-platform mode.
+
+## First platform: OpenPLC
+
+This platform is the most cost-effective, **OpenPLC** is an open-source IEC61131-3 compliant Soft PLC, thus allowing us to use the 5 languages provided in the specification (Ladder, FBD, IL, ST, SFC) to program our logic.
+
+![](img/openplc_editor.PNG)
+
+
+Its community is very large and active, and it is a very popular and appreciated system; right now I think OpenPLC is the most widely used free system.
+
+I have dealt with OpenPLC before, if you want to build a SoftPLC/IoT system using a Linux SBC (Single Board Computer - Raspberry type), similar in concept to Bosch's CtrlX, check out this article.  
+
+Like all systems, OpenPLC consists of two parts: the development system and the PLC.
+
+The special feature of OpenPLC is that it is **multi-target**, in fact, with the same development system, the PLC can be a Windows or Linux SoftPLC, or a Raspberry or, with some limitations, an Arduino-Like board. So many boards are currently supported, even OPTA and Portenta Machine Control.
+
+For our purposes, however, we will use SoftPLC because it is more performant, has fewer limitations as resource management, and is cost-free.
+
+The runtime, Windows or Linux, allows I/O to be handled in two ways; the first by writing a proprietary hardware driver, the second, more portable, is by using Modbus/TCP peripherals. There is also the possibility of using Ethercat; I personally have not tried it, but I have seen some convincing videos.
+
+For our purposes, OpenPLC can be either Master or Slave and works well either way; we will use it as Master.
+
+Ultimately, there are three pieces of software to be used: **OpenPLC Editor**, **OpenPLC Runtime** and **SnapTRAINER**.
+
+To gain experience, it is possible to use **one PC** that contains them all, which, in this case, will have to have Windows.
+
+Working with one PC makes it more compact and faster, plus interfacing is easier; the only disadvantage is that we need to switch between software; the ideal configuration would be to have a second monitor.
+
+I have not done testing with mixed MacOS/Windows/Linux platforms; the goal is not to test OpenPLC. When we go through the case studies I will assume that we are working with a single Windows PC.
+
+**System preparation**
+
+Download the editor from this page. You can find the runtime here, select the "OpenPLC Runtime for Windows.exe" item in the middle of the page.
+
+You must install both, the order is not important, and the installations are completely automatic. Both the Runtime and Editor, in the first instance, copy only the installation files; the actual installations, which also involve downloading other software, will occur on the first start.
+
+SnapTRAINER does not require installation, download the latest version from the repository in the releases section, unzip the SnapTRAINER.Release folder wherever you want. To launch it, simply run the SnapTRAINER.exe program.
+
+After installing OpenPLC, you will find two folders in the Windows application menu: OpenPLC Editor and OpenPLC Runtime. I recommend that you create two shortcuts on the desktop, especially for OpenPLC Runtime; in its folder, in fact, there is also the **Rebase OpenPLC** entry which updates the runtime to the latest version; if you accidentally select it, the update procedure starts; it is not a problem, but you will have to wait for it to finish.
+
+Both OpenPLC Editor and SnapTRAINER are two desktop applications; you just need to send them running to work with them. OpenPLC Runtime, on the other hand is a command-line application that contains a Web server; we will use the browser (Chrome, Edge or other) to interact with it.
+
+First, launch OpenPLC Runtime; you will see a "Dos" window similar to this one:
+
+![](img/openplc_runtime.PNG)
+
+
+minimize it but never close it. Then open your browser and connect to the runtime; very simply, in the address bar type localhost:8080
+
+![](img/openplc_web.PNG)
+
+When you first log in, use **openplc** (all lowercase) for both username and password and first create a new user, which you will use from now on, via the Users function.
+
+How it works
+
+With OpenPLC Editor create your program (suppose myproject) using one or more of the languages available to IEC61131-3.
+
+Then this is to be compiled by pressing the orange arrow button at the bottom, which, as a hint, reads "Generate program for OpenPLC runtime"; the compilation in addition to performing syntax checking, generates a file, myproject.st, which is the translation of the entire project into the textual language ST, so it too is a text file.
+
+To run, this program must be loaded, via the dashboard by OpenPLC Runtime, which turns the ST project into a C++ source and then actually compiles it. These seem like intricate steps, in reality it is all automatic; to recap you only have to:
+
+Write the program with the editor and compile it.
+
+Load the file generated by the editor with the Runtime.
+
+You can find more information on how to set up Modbus and peripheral access on the OpenPLC site.
+
+In the case studies you will find a picture of how to set the Modbus side of OpenPLC Runtime, this information is not present in the project.
+
+## Second platform: Arduino OPTA
+
+This platform has a very low cost, you can use even the smallest model without any limitation from the simulation point of view.  
+
+![](img/opta.png)
+
+I have written several times about OPTA (in <a href="https://www.linkedin.com/pulse/arduino-opta-how-do-we-cook-davide-nardella/" target="_blank">this</a> article and in <a href="https://www.linkedin.com/pulse/opta-family-grows-lets-take-look-new-expansions-learn-davide-nardella-6muwf/?lipi=urn%3Ali%3Apage%3Ad_flagship3_publishing_post_edit%3ByjW7QoxiQa%2BRSIsPydS%2FaA%3D%3D" target="_blank">this</a> other one), it is a system that I really like because it combines a very low price with very interesting features.
+
+It is born programmable relay, and is also referred to as such by the manufacturer, however, it is much more like a micro-PLC, in fact, programmable relays generally use different tools than those of the larger families; they have many limitations that makes them suitable for simplified uses.
+
+In this case we are dealing with a full compliant IEC61131-3 system that also allows for the integration of C++ code directly into the programming environment.
+
+It is a PLC that I would call **PRO/STEM**, it is suitable for small professional realizations (let's not forget the market segment in which it is placed) but it is also an excellent tool for school-age or pre-professional PLC learning.
+
+The dual nature of this PLC is evident when we go to program it; in fact, we can use both **Arduino IDE**, in C++, the tool of choice for Makers, and **Arduino PLC IDE**.
+
+We will obviously focus only on the latter environment.
+
+Our platform, therefore, will consist of **Arduino OPTA**, any model, **Arduino PLC IDE**, and **SnapTRAINER**.
+
+Arduino PLC IDE and SnapTRAINER can reside in the same PC, the only important thing will be to assign OPTA a compatible IP address to the PC hosting SnapTRAINER.
+
+The connection between the development environment and OPTA, on the other hand, is via USB-C cable.
+
+![](img/opta_snaptrainer.PNG)
+
+If you want to gain experience with a hardware PLC that costs little, this is the system I recommend to get started.
+
+## Third platform: Siemens S71200/1500
+
+Here we go up considerably in cost, but also in performance.
+
+We are talking about PLCs for professional industrial uses, capable of handling large automation lines and very complex tasks (S71500).
+
+The S71500 family, after the hardware rationalization that took place with TIA18, features a quad-core architecture based on CORTEX-R8 on all models. So we are talking about TRUE-Realtime with Lockstep technology for the safety part.
+
+The term TRUE-Realtime is wrong, Realtime would suffice, the specifications of critical systems speak for themselves; unfortunately, we need it to distinguish it from the "**Realtime that everyone is talking out of turn**" based on common hardware. If you want to learn more about this topic and redundant cores in Lockstep, I have written a detailed <a href="https://www.linkedin.com/pulse/facing-realtime-safety-critical-techniques-simple-way-davide-nardella/" target="_blank">article</a>, with **practical evidence**, on the CORTEX-R architecture.
+
+These PLC are powerful and reliable.
+
+Many years ago I saw an electrical panel literally devastated by lightning, in which the Siemens CPU (a glorious S5-135) was still functioning. Those were other times, today things have unfortunately changed quite a bit, however, Siemens CPUs continue to be among the most reliable on the market.
+
+The S71200 and S71500 CPUs are IEC61131-3 compliant, but they are not native as such; they are derived from the earlier S7300/400 families to which they introduced significant improvements.
+
+Over time, Siemens has made many efforts on the road to openness and adherence to the standard, and this is certainly commendable; with 30 percent of the world market and a near monopoly in Europe it could have decided to have its CPUs programmed in COBOL while still continuing to sell them.
+
+Rumors speak of a further approach for future platforms, this suggests that delving into the IEC61131-3 standard represents an increasingly attractive investment.
+
+To date, based on the hardware that we have at hand, however thinking of managing software among multiple platforms including Siemens, is a fairly easy task.
+
+The main deviation from the standard, the one that is most obvious, but probably of least interest for learning purposes (but also for production in my opinion) is that there is no concept of resources associated with user tasks of different priorities in TIA PORTAL; in Siemens CPUs the principle of the **Main Cyclic Program**, the old OB1 (Organization Block) which essentially represents a Program type POU with special characteristics
+
+No one prohibits, as is actually the case, calling FBs (Function Blocks) even by assigning different time slices.
+
+On the other hand, having a multitask system poses major problems of synchronization or data inconsistency if handled poorly. I don't mean to sound irreverent, but the FB "SEMA" introduced by IEC61131-3 seems a bit "lightweight" to me; after years of multithreaded programming in other contexts, I have some misgivings about using it in a control program where the concept of freezing a task while waiting for a resource is simply terrifying.
+
+However, take it as a personal opinion.
+
+TIA Portal is the Siemens PLC development system. It is very powerful, **Totally Integrated Automation** is really real, with the same environment it is possible to program everything: PLCs, HMIs, DRIVERS, and intelligent units; however, this power often requires resources that force programmers PC fleets to change very frequently.
+
+![](img/tia_portal.png)
+
+The cost is also considerable, certainly out of the reach of a hobbyist, but on the other hand, we are in a different category, where cost is something to be framed in a completely different context; therefore, making comparisons on price does not even make that much sense.
+
+**Our goal, let us not forget, is to verify that what we write for OpenPLC and OPTA also works well with S71500.**
+
+The experiences I am proposing were carried out with the smallest CPU at my disposal, an S71511; however, I assure you that the same programs are compatible with the entire S71500 family and even S71200, including virtual PLCs.
+
+This is S71200/1500-SnapTRAINER.
+
+![](img/s71500_snaptrainer.png)
+
+# Case studies
+
+Let us now look at two case studies; The first lends itself to the use of Function Block, and that, if approached well, makes the system extremely scalable.
+
+The second shows classic automation, simple but not trivial.
+
+We will implement both using mainly the Ladder language because it is the least portable and therefore makes everything more interesting.
+
+In the plans you will find three main blocks:
+
+* Process_IN
+* MainLogic
+* Process_OUT
+
+**Process_IN** and **Process_OUT** are interface blocks; they are used to extract the input bits from the IN registers and to compact the output bits in the OUT registers.
+
+These blocks depend on the platform, in our case I made them very similar as well; for example, I did not take advantage of the possibility of using bit structs in TIA PORTAL.
+
+**MainLogic, on the other hand, is identical for all platforms**.
+
+I invite you to download OPTA and OpenPLC development systems to realize how all these projects are the same.
+
+It is difficult to make the comparison with S71500 if you do not have TIA PORTAL, I will try, time permitting, to capture some images to put in the repository.
+
+Finally, the SnapTRAINER design is also **identical for the three platform**s, except for the communication driver.
+
+These are simple case studies, however, remember what I said earlier: any discrete control system, no matter how complex, can always be decomposed into many simpler parts.
+
+Looking only at the simulation of SnapTRAINER running, it is not possible to understand the PLC to which it is connected: the behavior is identical.
+
+## Case Study 1
+
+After the success of Cixin Liu's "**three-body problem**", I thought I would bring you the three-tank problem.
+
+![](img/3-tank.png)
+
+We have three small-capacity "user" tanks that, when needed, require refilling to a larger one called Main. The large tank is located at a higher level, so feeding to the smaller ones is done by gravity.
+
+Tanks, regardless of their size, function in a conceptually identical way, all of which are composed of:
+
+* A container for liquids 
+* An Inlet valve that allows liquid to enter from above. We can imagine it as a solenoid valve or the electrical control of a lift pump (as in the case of the Main tank) 
+* A manual Outlet ON/OFF valve that, when operated, causes liquid to flow out from below. 
+* Two level sensors: Minimum and Maximum that have a logical state 1 when covered by liquid. When the tank is empty they will both be at zero, with the liquid between minimum and maximum the minimum sensor will be active; when the liquid reaches the maximum level both sensors will be active. 
+
+The main tank Outlet solenoid valve is not manually operated and must be managed by our program; this can be done in two ways:
+
+* Kept open at all times: in this case, liquid would flow out only when at least one of the three tank users requires it. 
+* Controlled with the logical OR of the Inlet valves of tank users. 
+
+I chose the second option because it is good to try to stick to reality at all times: having an additional block valve allows maintenance to be done on the conduit leading from the main tank to the user tanks.
+
+All tanks that have the described equipment function in the same way:
+
+When the liquid level falls below the Min sensor, the Inlet solenoid valve (or associated electric pump) is actuated. This valve remains open until the liquid reaches the Max sensor.
+
+This behavior is called hysteresis and allows us to avoid continuous switching on and off that we would have if we had a single threshold.
+
+Automation is very simple, the special feature being that since we have to handle four objects that work the same way, the recommended implementation is to make a Device FB that implements the working algorithm, which will be written only once but instantiated four times.
+
+Of SnapTRAINER we will use one Control Keypad module to drive the Outlet Valves and four Tank modules.
+
+![](img/case_study_1.PNG)
+
+In the figure I have depicted the logical connections between our FB and the two modules. LAMP_EV_OUTLET is just to turn on the lamp of the control button when we press it. MACHINE_READY is an operational machine condition that comes from the general plant management.
+
+This is the image of the SnapTRAINER project.
+
+![](img/snaptrainer_3tank.png)
+
+## Case Study 2
+
+This is a small test station held semi-automatically, that is, with manual loading and automatic cycle.
+
+Let's look at the specifics of automation:
+
+* The operator inserts the component into the workpiece holder and starts the cycle using the START button.
+* A first vertical pneumatic cylinder clamps the workpiece.
+* Two horizontal cylinders pull over the pneumatic adductors.
+* Startup to the intelligent leak test unit is provided.
+* When the test is completed on the user handset, the green lamp (test pass) or the red lamp (test fail) will light up
+* In case of a rejected part, the part will remain locked and the operator will have to press the RESET button to unlock it. This operation serves to highlight the reject to even the least attentive operators.
+* In case of test pass the piece will be unlocked automatically.
+* Unlocking should be done in the reverse sequence; first the adductors and then the locking cylinder.
+* An optical barrier puts the machine in the emergency state if it is intercepted during the cycle; the same is done by pressing the red emergency mushroom (even when the machine is ready).
+* In case of recovery from emergency, or after power-up, the system should always realign itself in the correct sequence.
+
+![](img/case_study_2.PNG)
+
+Note: Emergency management, according to current regulations, must nowadays be realized by safety-certified hardware. Ours is a teaching case study, so we will manage emergencies with common I/O.
+
+For this project we will use:
+
+* A Control Keypad module
+* A Cylinders module (we will use 3 out of 4)
+* A Test Unit Module
+
+This is the diagram of the states of our station.
+
+![](img/case_study_2_states.png)
+
+From the wiring diagram of our station, it can be seen that the cylinders (Cylinder Name-Approach Valve, Retraction Valve, Approach Sensor and Retraction Sensor) are composed as follows:
+
+* Clamping cylinder: CY1 - EV1A, EV1B, SQ1A, SQ1B
+* Right adductor: CY2 - EV2A, EV2B, SQ2A, SQ2B
+* Left adductor: CY3 - EV3A, EV3B, SQ3A, SQ3B
+
+
+To better understand, let us briefly look at what a cylinder is and how it works.
+
+![](img/cylinder.png)
+
+The pneumatic cylinder is a mechanical component with pneumatic action; in its most common configuration, it is equipped with two pneumatic ports, one for extension and one for retraction.
+
+When we insufflate air into the extension port, the inner rod of the cylinder moves outward; the reverse happens when air is insufflated into the retraction port.
+
+The cylinder has two stable positions, the one in which the rod is fully retracted and the one in which the rod is fully extended; any intermediate position is considered indeterminate.
+
+There are also two sensors, integral to the cylinder, that allow the PLC to determine whether the cylinder is extended or retracted.
+
+Basically, an extension movement involves piloting the valve that feeds the extension port and then waiting for the extension sensor to be active. Conversely, when we want to retract the cylinder, we will pilot the retraction solenoid valve and test the home sensor.
+
+To simulate a cylinder we need two inputs and two outputs.
+
+Let us then look at the parameterization of the Cylinders module of SnapTRAINER.
+
+![](img/cylinders_settings.png)
+
+We can decide the number of cylinders to be used, four may be too many, for example, suppose we need 7 and we have entered two modules, the second one will have to contain only 3.
+
+Each cylinder module needs two registers, a read register (from the PLC to the Module) that will contain the valve activation bits according to the table shown and a write register (from the Module to the PLC) that will report the status of the sensors to the PLC; only the low byte of each register will be used.
+
+By just assigning addresses to the registers, our module is already able to function. However, to make the simulation more realistic, each cylinder is associated with a set of parameters that you can change according to your needs.
+
+Stroke indicates the stroke of the stem in millimeters.
+
+Extension Speed and Retraction Speed indicate the extension and retraction speeds, respectively, expressed in mm/s. In realities these are determined by pneumatic chokes placed on the cylinder ports that serve to vary the airflow and thus the speed.
+
+These three parameters make it possible to determine how long it takes a cylinder to make the full stroke, according to the simple formula:
+
+T[s] = Stroke[mm] / Speed [mm/s]
+
+Initial Position indicates the position of the cylinder at the beginning of the simulation. In reality, when we turn on a machine, we almost never know for sure the state of the cylinders, so our software must be able to handle a proper reset from an indeterminate situation.
+
+Cylinder Type indicates the type of cylinder, which can be double-acting (the one we have seen so far) or spring-return. The latter does not have a retraction light, so when it is not being piloted in extension, it will return automatically. From a piloting point of view, the map does not change; the retraction bit will simply be ignored.
+
+Extended Sensor and Retracted Sensor indicate the presence or absence of the respective sensors. In reality, it may be the case, for example, that we use a cylinder to clamp a component whose thickness is variable; in this case we cannot insert a "fixed height" sensor, we will therefore be forced to go in time.
+
+Again in reality, some somewhat "questionable" low-cost automations do not always include the installation of all sensors; this is not a good practice, however, with these parameters we can also prepare for these borderline situations.
+
+Again, the register map does not change when some sensor is absent; its relative bit will always remain at zero.
+
+Finally, Caption allows us to assign a name to a cylinder, typically we are going to get it from the pneumatic diagram.
+
+Once the module is parameterized and the simulation is started, the cylinders will move according to the bits coming from the PLC and the parameters set.
+
+In the simulation, each cylinder is associated with a status that will be displayed on the right. For the purposes of the control program, this is completely transparent; it serves us only to verify that we are driving the cylinders "properly."
+
+![](img/cylinders_running.png)
+
+For example, if we drive both valves, extension and retraction, the cylinder locks in the position it is in and its state is Stalled, in real applications we should always avoid this condition.
+
+If, on the other hand, we do not drive either valve, the cylinder is in the Inactive state; this state should also be avoided, especially with vertical cylinders extending downward; in fact, the cylinders never guarantee perfect pneumatic sealing and the risk is that the cylinder may extend undesirably.
+
+Last note, sensors, as in reality, are associated with a hysteresis fixed in 5mm.
+
+This is, finally, what the SnapTRAINER project looks like.
+
+![](img/snaptrainer_leaktest.png)
 
 # Rebuild SnapTRAINER
 
