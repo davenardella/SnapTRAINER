@@ -807,6 +807,16 @@ The connection between the development environment and OPTA, on the other hand, 
 
 If you want to gain experience with a hardware PLC that costs little, this is the system I recommend to get started.
 
+There is another Arduino PLC, part of the PRO line: the **Portenta Machine Control**.
+
+![](img/PMC.png)
+
+It features the same processor as OPTA and is also programmed with Arduino PLC IDE. It has a richer hardware package, so its cost is higher.
+
+We find many 24V I/O, communication ports, WIFI etc; it can handle a small station without additional hardware.
+
+In case you have one available or plan to purchase one in the future, SnapTRAINER is perfectly compatible with it.
+
 ## Third platform: Siemens S71200/1500
 
 Here we go up considerably in cost, but also in performance.
