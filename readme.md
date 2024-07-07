@@ -1,5 +1,17 @@
 # SnapTRAINER
 
+Welcome to the fantastic world of **industrial automation**.
+The aim of this project is to allow everyone to learn to program PLCs at no or very low cost.
+
+To do this, however, we need a trainer to help us debug our programs and we need to identify zero/low-cost platforms to use.
+
+**Find everything here.**
+
+If the project is of interest to you, you can find some other information in the article I wrote.
+
+Follow <a href="https://www.linkedin.com/in/davidenardella/" target="_blank">me on Linkedin</a> to stay updated on this project and others of the same type.
+
+
 ![](img/Gallery_small.png)
 
 When we create control software with a PLC we need to test it.
@@ -946,64 +958,7 @@ From the wiring diagram of our station, it can be seen that the cylinders (Cylin
 * Right adductor: CY2 - EV2A, EV2B, SQ2A, SQ2B
 * Left adductor: CY3 - EV3A, EV3B, SQ3A, SQ3B
 
-
-To better understand, let us briefly look at what a cylinder is and how it works.
-
-![](img/cylinder.png)
-
-The pneumatic cylinder is a mechanical component with pneumatic action; in its most common configuration, it is equipped with two pneumatic ports, one for extension and one for retraction.
-
-When we insufflate air into the extension port, the inner rod of the cylinder moves outward; the reverse happens when air is insufflated into the retraction port.
-
-The cylinder has two stable positions, the one in which the rod is fully retracted and the one in which the rod is fully extended; any intermediate position is considered indeterminate.
-
-There are also two sensors, integral to the cylinder, that allow the PLC to determine whether the cylinder is extended or retracted.
-
-Basically, an extension movement involves piloting the valve that feeds the extension port and then waiting for the extension sensor to be active. Conversely, when we want to retract the cylinder, we will pilot the retraction solenoid valve and test the home sensor.
-
-To simulate a cylinder we need two inputs and two outputs.
-
-Let us then look at the parameterization of the Cylinders module of SnapTRAINER.
-
-![](img/cylinders_settings.png)
-
-We can decide the number of cylinders to be used, four may be too many, for example, suppose we need 7 and we have entered two modules, the second one will have to contain only 3.
-
-Each cylinder module needs two registers, a read register (from the PLC to the Module) that will contain the valve activation bits according to the table shown and a write register (from the Module to the PLC) that will report the status of the sensors to the PLC; only the low byte of each register will be used.
-
-By just assigning addresses to the registers, our module is already able to function. However, to make the simulation more realistic, each cylinder is associated with a set of parameters that you can change according to your needs.
-
-Stroke indicates the stroke of the stem in millimeters.
-
-Extension Speed and Retraction Speed indicate the extension and retraction speeds, respectively, expressed in mm/s. In realities these are determined by pneumatic chokes placed on the cylinder ports that serve to vary the airflow and thus the speed.
-
-These three parameters make it possible to determine how long it takes a cylinder to make the full stroke, according to the simple formula:
-
-T[s] = Stroke[mm] / Speed [mm/s]
-
-Initial Position indicates the position of the cylinder at the beginning of the simulation. In reality, when we turn on a machine, we almost never know for sure the state of the cylinders, so our software must be able to handle a proper reset from an indeterminate situation.
-
-Cylinder Type indicates the type of cylinder, which can be double-acting (the one we have seen so far) or spring-return. The latter does not have a retraction light, so when it is not being piloted in extension, it will return automatically. From a piloting point of view, the map does not change; the retraction bit will simply be ignored.
-
-Extended Sensor and Retracted Sensor indicate the presence or absence of the respective sensors. In reality, it may be the case, for example, that we use a cylinder to clamp a component whose thickness is variable; in this case we cannot insert a "fixed height" sensor, we will therefore be forced to go in time.
-
-Again in reality, some somewhat "questionable" low-cost automations do not always include the installation of all sensors; this is not a good practice, however, with these parameters we can also prepare for these borderline situations.
-
-Again, the register map does not change when some sensor is absent; its relative bit will always remain at zero.
-
-Finally, Caption allows us to assign a name to a cylinder, typically we are going to get it from the pneumatic diagram.
-
-Once the module is parameterized and the simulation is started, the cylinders will move according to the bits coming from the PLC and the parameters set.
-
-In the simulation, each cylinder is associated with a status that will be displayed on the right. For the purposes of the control program, this is completely transparent; it serves us only to verify that we are driving the cylinders "properly."
-
-![](img/cylinders_running.png)
-
-For example, if we drive both valves, extension and retraction, the cylinder locks in the position it is in and its state is Stalled, in real applications we should always avoid this condition.
-
-If, on the other hand, we do not drive either valve, the cylinder is in the Inactive state; this state should also be avoided, especially with vertical cylinders extending downward; in fact, the cylinders never guarantee perfect pneumatic sealing and the risk is that the cylinder may extend undesirably.
-
-Last note, sensors, as in reality, are associated with a hysteresis fixed in 5mm.
+Please, refer to **Cylynders Module** for an in-depth explanation of the pneumatic cylinders.
 
 This is, finally, what the SnapTRAINER project looks like.
 
