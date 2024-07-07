@@ -851,6 +851,19 @@ This is S71200/1500-SnapTRAINER.
 
 ![](img/s71500_snaptrainer.png)
 
+As already mentioned, SnapTRAINER is perfectly compatible with S71200 systems, they are smaller and much cheaper PLCs than those of the S71500 series. The huge advantage is that they use TIA Portal as the development system; everything you make with an S71200 can be brought to an S71500.
+
+![](img/s71200.png)
+
+Within certain limits (64-bit variables and specific library functions) the opposite is also true.
+
+There are various Starter Kits for the S71200 family, they cost a few hundred euros, they do not have a simulator on board, but from what we have seen there is no problem.
+
+I leave you the <a href="https://support.industry.siemens.com/cs/document/109776862/simatic-s7-1200-starter-kits-with-step-7-basic-v16?dti=0&lc=en-IT" target="_blank">link</a> to one of them, for completeness of information.
+
+Also consider that it is very often possible to find these kits on the used market or on some online auctions.
+
+
 # Case studies
 
 Let us now look at two case studies; The first lends itself to the use of Function Block, and that, if approached well, makes the system extremely scalable.
