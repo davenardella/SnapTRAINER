@@ -1,0 +1,209 @@
+object VxForm: TVxForm
+  Left = 360
+  Height = 330
+  Top = 294
+  Width = 480
+  BorderStyle = bsNone
+  Caption = 'VxForm'
+  ClientHeight = 330
+  ClientWidth = 480
+  Color = 5592405
+  Constraints.MaxHeight = 330
+  Constraints.MaxWidth = 480
+  Constraints.MinHeight = 330
+  Constraints.MinWidth = 480
+  OnCreate = FormCreate
+  LCLVersion = '3.2.0.0'
+  Visible = True
+  object LedCom_1: TuELED
+    Left = -1
+    Height = 14
+    Top = 315
+    Width = 60
+    Debug = False
+    Active = True
+    LedType = ledSquare
+    Bright = True
+    Reflection = True
+    Color = clRed
+    ParentColor = False
+  end
+  object LedCom_2: TuELED
+    Left = 59
+    Height = 14
+    Top = 315
+    Width = 60
+    Debug = False
+    Active = True
+    LedType = ledSquare
+    Bright = True
+    Reflection = True
+    Color = clYellow
+    ParentColor = False
+  end
+  object lblName: TLabel
+    Left = 395
+    Height = 15
+    Top = 312
+    Width = 78
+    Caption = 'Analog Inputs'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = 16119285
+    Font.Pitch = fpVariable
+    Font.Quality = fqCleartypeNatural
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object Panel1: TPanel
+    Left = 3
+    Height = 139
+    Top = 6
+    Width = 473
+    BevelOuter = bvNone
+    ClientHeight = 139
+    ClientWidth = 473
+    Color = clBlack
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object Display_1: TLEDNumber
+      Left = 1
+      Height = 60
+      Top = 5
+      Width = 374
+      Caption = 'Display_1'
+      Columns = 11
+      OffColor = 597020
+      OnColor = clAqua
+      Size = 3
+    end
+    object Display_2: TLEDNumber
+      Left = 1
+      Height = 60
+      Top = 73
+      Width = 374
+      Caption = 'Display_2'
+      Columns = 11
+      OffColor = 597020
+      OnColor = 33023
+      Size = 3
+    end
+    object Label1: TLabel
+      Left = 375
+      Height = 19
+      Top = 3
+      Width = 80
+      AutoSize = False
+      Caption = 'CH 1'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clAqua
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 375
+      Height = 19
+      Top = 71
+      Width = 80
+      AutoSize = False
+      Caption = 'CH 2'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = 33023
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object UMis_CH_1: TLabel
+      Left = 374
+      Height = 30
+      Top = 31
+      Width = 94
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'V'
+      Color = clBlack
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clAqua
+      Font.Height = -24
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqCleartypeNatural
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object UMis_CH_2: TLabel
+      Left = 374
+      Height = 30
+      Top = 108
+      Width = 94
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = 'V'
+      Color = clBlack
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = 33023
+      Font.Height = -24
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqCleartypeNatural
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pts_CH_1: TLabel
+    Left = 406
+    Height = 25
+    Top = 158
+    Width = 56
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '0'
+    Color = clBlack
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clAqua
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqAntialiased
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object pts_CH_2: TLabel
+    Left = 406
+    Height = 25
+    Top = 185
+    Width = 56
+    Alignment = taRightJustify
+    AutoSize = False
+    Caption = '0'
+    Color = clBlack
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = 33023
+    Font.Height = -19
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqAntialiased
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Timer: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = TimerTimer
+    Left = 416
+    Top = 240
+  end
+end
