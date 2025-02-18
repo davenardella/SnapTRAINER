@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Release"/>
+    <Units>
+      <Unit>
+        <Filename Value="module_digitalio.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos Y="30"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="VxFrmSettings.pas"/>
+        <ComponentName Value="VxSettingsForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="81"/>
+        <CursorPos X="31" Y="95"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\basemodule.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="94"/>
+        <CursorPos X="41" Y="11"/>
+        <UsageCount Value="22"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\VxFrmModule.pas"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="87" Y="27"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\VTrainer\basemodule.pas"/>
+        <UnitName Value="BaseModule"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="130"/>
+        <CursorPos Y="156"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="21"/>
+        <CursorPos X="4" Y="37"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\sysosh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="19"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\VxTypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="28"/>
+        <UsageCount Value="20"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\VTrainer\communication_manager.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="73"/>
+        <CursorPos Y="93"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\VxController.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="44"/>
+        <CursorPos X="15" Y="60"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\VxModule.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="22" Y="13"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\dll\VxExports.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="32" Y="13"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="VxExports.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="33"/>
+        <CursorPos X="3" Y="89"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="VxFrmModule.pas"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="300"/>
+        <CursorPos X="3" Y="305"/>
+        <UsageCount Value="13"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\VTrainer\modules\digitalio\digitalio_module.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="438"/>
+        <CursorPos Y="449"/>
+        <UsageCount Value="13"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\VTrainer\modules\base_module.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="25"/>
+        <CursorPos X="33" Y="40"/>
+        <UsageCount Value="13"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\VTrainer\mokup\unit2.pas"/>
+        <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit2"/>
+        <EditorIndex Value="-1"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Lib\VxUtils.pas"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="76"/>
+        <CursorPos X="3" Y="102"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Lib\VxTypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="11"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Main\VxController.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="421"/>
+        <CursorPos X="15" Y="440"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Main\VxModule.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="7"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\syswinh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="3" Y="68"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\wininc\defines.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="982"/>
+        <CursorPos X="6" Y="1001"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\AnalogIN\VxFrmModule.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="97"/>
+        <CursorPos Y="120"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Lazarus\VTrainer\modules\digitalio\digitalio_module.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="275"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\EC_Controls\EC_Controls\ecswitch.pas"/>
+        <UnitName Value="ECSwitch"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="52" Y="2"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\industrialstuff\source\lednumber.pas"/>
+        <UnitName Value="LedNumber"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12" Y="6"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\industrialstuff\industrial.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="386" Column="22" TopLine="371"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="387" Column="68" TopLine="372"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="419" Column="20" TopLine="396"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmSettings.pas"/>
+        <Caret Line="34" Column="17" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="155" Column="19" TopLine="133"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="330" Column="26" TopLine="324"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="320" Column="18" TopLine="314"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="8" Column="16"/>
+      </Position>
+      <Position>
+        <Filename Value="VxExports.pas"/>
+        <Caret Line="15" Column="13" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="163" Column="15" TopLine="140"/>
+      </Position>
+      <Position>
+        <Filename Value="VxExports.pas"/>
+        <Caret Line="83" Column="3" TopLine="69"/>
+      </Position>
+      <Position>
+        <Filename Value="VxExports.pas"/>
+        <Caret Line="118" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="VxExports.pas"/>
+        <Caret Line="85" Column="3" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="VxExports.pas"/>
+        <Caret Line="16" Column="19"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="443" Column="3" TopLine="440"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="165" Column="15" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="157" Column="15" TopLine="142"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="367" Column="3" TopLine="363"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="166" Column="15" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="484" Column="3" TopLine="476"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="165" Column="15" TopLine="150"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="463" Column="3" TopLine="457"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="163" Column="15" TopLine="149"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="469" Column="7" TopLine="449"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="155" Column="15" TopLine="140"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="328" Column="3" TopLine="324"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="156" Column="15" TopLine="140"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="337" Column="3" TopLine="331"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="130" Column="15" TopLine="116"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
