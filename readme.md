@@ -1,5 +1,10 @@
 # SnapTRAINER
 
+---
+
+*This repository contains the whole project without binaries, you can find them* <a href="https://github.com/davenardella/SnapTRAINER.Release" target="_blank">here</a>
+
+---
 Welcome to the fantastic world of **industrial automation**.
 The aim of this project is to allow everyone to learn to program PLCs at no or very low cost.
 
