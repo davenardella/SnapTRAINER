@@ -18,6 +18,7 @@ begin
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
+  VxFrmMain.CmdlineFilename:=ParamStr(1);
   Application.CreateForm(TMainForm, MainForm);
   Application.CreateForm(TCommMonitor, CommMonitor);
   Application.CreateForm(TAboutForm, AboutForm);

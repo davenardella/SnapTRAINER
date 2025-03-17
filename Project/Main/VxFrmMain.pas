@@ -137,6 +137,7 @@ type
 
 var
   MainForm: TMainForm;
+  CmdlineFilename : string = '';
 
 implementation
 {$R *.lfm}
@@ -580,6 +581,11 @@ Var
   Var
     ini : TMemIniFile;
   begin
+    if FileExists(CmdlineFilename) then
+    begin
+      Result:=CmdLineFileName;
+      exit;
+    end;
     ini:=TMemIniFile.Create(FAppdataDir+AppName+'.ini');
     try
       Result:=ini.ReadString('General','LastProject',FDefaultFileName);
