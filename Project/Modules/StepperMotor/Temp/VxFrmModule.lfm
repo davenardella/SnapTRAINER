@@ -13,7 +13,7 @@ object VxForm: TVxForm
   Constraints.MinHeight = 330
   Constraints.MinWidth = 480
   OnCreate = FormCreate
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object LedCom_1: TuELED
     Left = -1
@@ -1469,14 +1469,11 @@ object VxForm: TVxForm
       LightIntensity = 250
       PositionColor = clLime
       PositionWidth = 5
-      PositionOpacity = 192
       PositionMargin = 3
       PositionType = kptFilledCircle
-      UsePhongLighting = True
       MinValue = 1
       MaxValue = 359
       Value = 270
-      StartFromBottom = True
     end
   end
   object LedCom_3: TuELED

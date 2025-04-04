@@ -884,7 +884,7 @@ begin
   Timer.Enabled:=false;
   MotorTimer.Enabled:=false;
   State:=msDisabled;
-  CommRegisterFastWrite(Regs[2].Index, 0);
+//  CommRegisterFastWrite(Regs[2].Index, 0);
   XI:=WordToBits(0);
   XQ:=WordToBits(0);
   UpdatePanel;

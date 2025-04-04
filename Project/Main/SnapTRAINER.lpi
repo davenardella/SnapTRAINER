@@ -18,7 +18,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="..\Bin\SnapTRAINER"/>
+            <Filename Value="..\..\SnapTRAINER.Release\SnapTRAINER"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>

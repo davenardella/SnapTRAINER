@@ -458,7 +458,6 @@ Any command, including STOP and RESET, are active on the positive side.
 
 This is a safety to prevent, for example, a START accidentally kept high past the end of the test from launching an unwanted retest.
 
-
 ### Stepper Motor Module
 
 This is a fairly complex module that allows the simulation of a stepper motor either free or connected to a ballscrew transmission mechanism.
@@ -554,6 +553,22 @@ It is possible to become familiar with this module (as well as others), without 
 
 ![](img/motor_test.png)
 
+### Simple Motor Module
+
+This module is similar to the previous one, but **much simpler** to use.
+
+![](img/simple_motor.png)
+
+There are not all the parameters related to the screw pitch, steps per revolution, etc.
+It can work in manual mode: move down and move up simply by acting on the two input bits, or in "mission" mode: you select a quota, give the start and the motor moves (up or down) until it reaches it.
+These are its parameters.
+
+![](img/simplemotor_settings.png)
+
+The speed is set by parameter and it is not necessary to pass it from the PLC.
+The screw length is an integer expressed in generic "units" without other conversions. The range is from 0 to 65000 max and is settable.
+This module is very useful for the first experiences.
+
 ### Numeric I/O Module
 
 This module has three 32-bit channels. Two input numbers can be displayed and one can be sent to the PLC. 
@@ -579,7 +594,6 @@ The Listboxes of the representation set the default, as already explained, you c
 **Caption** allows a descriptive name to be assigned to each channel.
 
 The output value will be input manually; following pressing the **[EDIT]** button will open an Edit field, in which the number should be entered **in the same format** with which it is displayed.
-
 
 ### Text Module
 
@@ -638,6 +652,58 @@ Instead of the selector switch you can display two led lamps (for example to dis
 ![](img/keypad_leds.png)
 
 LED lamps can also flash and a label is associated.
+
+
+### Elevator Cab Module
+
+This module simulates an elevator cabin and, together with the **Elevator Call** and **Simple Motor** modules, allows you to simulate a complete multi-floor elevator.
+
+![](img/elevatorcab.png)
+
+It is equipped with a sliding door that opens or closes according to two input bits, at the set speed.
+From the PLC, in addition to the door command bits, it is possible to pass the number of the current floor and the command for the two "up arrow" and "down arrow" LEDs.
+
+In output, towards the PLC, this module has a bit for each floor button pressed and three bits related to the door: door open, door closed and door sliding.
+
+The only automation present is that of the door, for the rest it is a button panel with display and LEDs, **you must write the elevator automation in the PLC** :wink:.
+
+These are its parameters.
+
+![](img/elevatorcab_settings.png)
+
+### Elevator Call Module
+
+This module, together with the previous one, allows you to simulate an elevator system.
+This represents the call button panel present on each floor of a building.
+
+![](img/elevatorcall.png)
+
+It is a very simple module, it has two buttons, the display of the floor where the elevator is located, two light arrows that indicate whether the elevator goes up or down and finally a rectangular LED between the two buttons: we must light it red when the elevator is busy or green when it is free and we can call it.
+These are its parameters.
+
+![](img/elevatorcall_settings.png)
+
+We can change the floor label (with a text of our choice) and finally it is possible to disable one of the two buttons to simulate the ground floor or top floor button panel.
+
+### Traffic Light Module
+This module simulates a traffic light, or rather it simulates the lamps, their on and off cycle in relation to the other traffic lights, you have to write it in the PLC.
+It is possible to simulate a car traffic light.
+
+![](img/trafficlight_3.png)
+
+Or a pedestrian traffic light.
+
+![](img/trafficlight_2.png)
+
+Some displays show the time when the various lamps come on, resetting on the rising edge of the lamp.
+
+If we make a mistake in the sequence in the PLC and accidentally turn on two incompatible lamps at the same time (for example red and green), an error message appears to warn us of the problem in the cycle.
+
+These are its parameters.
+
+![](img/trafficlight_settings.png)
+
+By inserting 4 car traffic lights and 4 pedestrian traffic lights into SnapTRAINER you can simulate a complete road intersection.
 
 ## Testing of modules without a PLC
 

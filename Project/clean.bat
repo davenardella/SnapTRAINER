@@ -10,3 +10,7 @@ del /s /q .\modules\SteperMotor\temp\*.*
 del /s /q .\modules\Tank\temp\*.*
 del /s /q .\modules\TestUnit\temp\*.*
 del /s /q .\modules\TextDisplay\temp\*.*
+del /s /q .\modules\SimpleMotor\temp\*.*
+del /s /q .\modules\TrafficLight\temp\*.*
+del /s /q .\modules\ElevatorCab\temp\*.*
+del /s /q .\modules\ElevatorCall\temp\*.*

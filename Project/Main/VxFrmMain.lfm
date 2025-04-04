@@ -1,10 +1,10 @@
 object MainForm: TMainForm
   Left = 569
-  Height = 714
+  Height = 737
   Top = 191
   Width = 1078
   Caption = 'MainForm'
-  ClientHeight = 714
+  ClientHeight = 737
   ClientWidth = 1078
   Color = clBtnFace
   OnCloseQuery = FormCloseQuery
@@ -14,7 +14,7 @@ object MainForm: TMainForm
   Visible = True
   object SB: TScrollBox
     Left = 0
-    Height = 664
+    Height = 687
     Top = 50
     Width = 1078
     HorzScrollBar.Page = 1
