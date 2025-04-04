@@ -557,13 +557,13 @@ It is possible to become familiar with this module (as well as others), without 
 
 This module is similar to the previous one, but **much simpler** to use.
 
-![](img/simple_motor.png)
+![](img/simple_motor.PNG)
 
 There are not all the parameters related to the screw pitch, steps per revolution, etc.
 It can work in manual mode: move down and move up simply by acting on the two input bits, or in "mission" mode: you select a quota, give the start and the motor moves (up or down) until it reaches it.
 These are its parameters.
 
-![](img/simplemotor_settings.png)
+![](img/simplemotor_settings.PNG)
 
 The speed is set by parameter and it is not necessary to pass it from the PLC.
 The screw length is an integer expressed in generic "units" without other conversions. The range is from 0 to 65000 max and is settable.
@@ -658,7 +658,7 @@ LED lamps can also flash and a label is associated.
 
 This module simulates an elevator cabin and, together with the **Elevator Call** and **Simple Motor** modules, allows you to simulate a complete multi-floor elevator.
 
-![](img/elevatorcab.png)
+![](img/elevatorcab.PNG)
 
 It is equipped with a sliding door that opens or closes according to two input bits, at the set speed.
 From the PLC, in addition to the door command bits, it is possible to pass the number of the current floor and the command for the two "up arrow" and "down arrow" LEDs.
@@ -669,19 +669,19 @@ The only automation present is that of the door, for the rest it is a button pan
 
 These are its parameters.
 
-![](img/elevatorcab_settings.png)
+![](img/elevatorcab_settings.PNG)
 
 ### Elevator Call Module
 
 This module, together with the previous one, allows you to simulate an elevator system.
 This represents the call button panel present on each floor of a building.
 
-![](img/elevatorcall.png)
+![](img/elevatorcall.PNG)
 
 It is a very simple module, it has two buttons, the display of the floor where the elevator is located, two light arrows that indicate whether the elevator goes up or down and finally a rectangular LED between the two buttons: we must light it red when the elevator is busy or green when it is free and we can call it.
 These are its parameters.
 
-![](img/elevatorcall_settings.png)
+![](img/elevatorcall_settings.PNG)
 
 We can change the floor label (with a text of our choice) and finally it is possible to disable one of the two buttons to simulate the ground floor or top floor button panel.
 
@@ -689,11 +689,11 @@ We can change the floor label (with a text of our choice) and finally it is poss
 This module simulates a traffic light, or rather it simulates the lamps, their on and off cycle in relation to the other traffic lights, you have to write it in the PLC.
 It is possible to simulate a car traffic light.
 
-![](img/trafficlight_3.png)
+![](img/trafficlight_3.PNG)
 
 Or a pedestrian traffic light.
 
-![](img/trafficlight_2.png)
+![](img/trafficlight_2.PNG)
 
 Some displays show the time when the various lamps come on, resetting on the rising edge of the lamp.
 
