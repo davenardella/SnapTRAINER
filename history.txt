@@ -1,0 +1,8 @@
+1.0.0 - First release
+1.0.1 - Small improvements
+1.0.2 - New modules added:
+        - Simple motor
+        - Elevator Cab
+        - Elevator Call
+        - Traffic Light
+      - Codesys examples added 
