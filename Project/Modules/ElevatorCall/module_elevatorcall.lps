@@ -17,7 +17,8 @@
         <ComponentName Value="TElevatorCallSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="115"/>
         <CursorPos X="19" Y="125"/>
         <UsageCount Value="33"/>
@@ -112,9 +113,8 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="143"/>
-        <CursorPos X="40" Y="167"/>
+        <TopLine Value="201"/>
+        <CursorPos Y="235"/>
         <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -149,7 +149,7 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="22"/>
         <CursorPos X="46" Y="31"/>
         <UsageCount Value="22"/>
@@ -379,22 +379,13 @@
       </Unit>
       <Unit>
         <Filename Value="..\ElevatorCab\VxFrmModule.pas"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="419"/>
-        <CursorPos Y="447"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="334"/>
+        <CursorPos Y="357"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="247" Column="9" TopLine="229"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="44" Column="23" TopLine="30"/>
-      </Position>
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="VxFrmSettings.pas"/>
         <Caret Line="121" Column="27" TopLine="103"/>
@@ -504,8 +495,8 @@
         <Caret Line="47" Column="17" TopLine="26"/>
       </Position>
       <Position>
-        <Filename Value="..\ElevatorCab\VxFrmModule.pas"/>
-        <Caret Line="77" Column="18" TopLine="53"/>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="167" Column="40" TopLine="143"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -8,7 +8,7 @@
       <Unit>
         <Filename Value="module_simplemotor.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="39" Y="29"/>
         <UsageCount Value="120"/>
         <Loaded Value="True"/>
@@ -18,8 +18,7 @@
         <ComponentName Value="SettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="58"/>
         <CursorPos X="41" Y="76"/>
         <UsageCount Value="68"/>
@@ -105,7 +104,7 @@
       </Unit>
       <Unit>
         <Filename Value="VxExports.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="81"/>
         <CursorPos X="31" Y="95"/>
         <UsageCount Value="27"/>
@@ -116,6 +115,7 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="485"/>
         <CursorPos Y="518"/>
         <UsageCount Value="62"/>
@@ -162,7 +162,7 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxTypes.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="2"/>
         <CursorPos X="47" Y="16"/>
         <UsageCount Value="18"/>
         <Loaded Value="True"/>
@@ -305,7 +305,7 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
         <UnitName Value="BGRAKnob"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="439"/>
@@ -322,7 +322,7 @@
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\..\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
         <UnitName Value="BGRAKnob"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="15"/>
@@ -356,11 +356,13 @@
       </Unit>
       <Unit>
         <Filename Value="..\StepperMotor\VxFrmModule.pas"/>
-        <EditorIndex Value="1"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos Y="36"/>
         <UsageCount Value="15"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">

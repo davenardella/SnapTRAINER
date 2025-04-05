@@ -348,9 +348,12 @@ end;
 
 procedure TVxForm.ApplyParams;
 begin
-  lblName.Hint:='Control Reg : '+IntToStr(Params.Input_Reg)+#13+
-                'Floor   Reg : '+IntToStr(Params.Floor_Reg)+#13+
-                'Status  Reg : '+IntToStr(Params.Output_Reg);
+  lblName.Hint:=
+  'Read Registers'+#13+
+  '  Control Reg : '+IntToStr(Params.Input_Reg)+#13+
+  '  Floor   Reg : '+IntToStr(Params.Floor_Reg)+#13+
+  'Write Registers'+#13+
+  '  Status  Reg : '+IntToStr(Params.Output_Reg);
   Door.SlidingTime:=QWord(Params.SlidingTime);
 end;
 

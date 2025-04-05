@@ -17,6 +17,7 @@
         <ComponentName Value="TElevatorCabSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="104"/>
         <CursorPos X="25" Y="124"/>
@@ -112,9 +113,8 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="267"/>
-        <CursorPos X="8" Y="284"/>
+        <TopLine Value="323"/>
+        <CursorPos X="47" Y="348"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -307,10 +307,14 @@
       </Unit>
       <Unit>
         <Filename Value="..\SimpleMotor\VxFrmModule.pas"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="428"/>
-        <CursorPos Y="457"/>
+        <TopLine Value="347"/>
+        <CursorPos X="10" Y="351"/>
         <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
@@ -348,19 +352,14 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\SimpleMotor\VxFrmModule.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="384" Column="22" TopLine="356"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="406" Column="50" TopLine="375"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-      </Position>
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="337" Column="31" TopLine="306"/>
@@ -467,6 +466,13 @@
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="403" Column="8" TopLine="375"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="284" Column="8" TopLine="195"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
       </Position>
     </JumpHistory>
     <RunParams>
