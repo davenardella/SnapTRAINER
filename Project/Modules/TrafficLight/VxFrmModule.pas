@@ -122,7 +122,7 @@ Var
   TimeTenth : double;
   StrTime   : string;
 begin
-  TimeTenth:=Time_ms/100;
+  TimeTenth:=Time_ms/1000;
   Str(TimeTenth:0:1,StrTime);
   StrTime:=StringReplace(StrTime,'.',',',[]);
   while Length(StrTime)< (FDisplay.Columns+1) do
