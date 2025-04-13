@@ -116,8 +116,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="485"/>
-        <CursorPos Y="518"/>
+        <TopLine Value="455"/>
+        <CursorPos X="21" Y="458"/>
         <UsageCount Value="62"/>
         <Bookmarks Count="1">
           <Item0 Y="574" ID="7"/>

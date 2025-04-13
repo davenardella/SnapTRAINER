@@ -70,6 +70,7 @@ object CommSettingsForm: TCommSettingsForm
       Top = 115
       Width = 18
       TabOrder = 2
+      OnClick = ChkBaseAddressZeroClick
     end
     object Label32: TLabel
       Left = 30
@@ -1027,20 +1028,20 @@ object CommSettingsForm: TCommSettingsForm
       end
     end
   end
-  object GroupBox1: TGroupBox
+  object gbAddress1: TGroupBox
     Left = 392
-    Height = 320
+    Height = 266
     Top = 64
     Width = 456
     Caption = 'Addressing Scheme'
-    ClientHeight = 300
+    ClientHeight = 246
     ClientWidth = 452
     ParentBackground = False
     TabOrder = 5
     object Label18: TLabel
       Left = 224
       Height = 15
-      Top = 20
+      Top = 24
       Width = 48
       Caption = 'example:'
       OnClick = Label18Click
@@ -1230,14 +1231,14 @@ object CommSettingsForm: TCommSettingsForm
     object Label19: TLabel
       Left = 168
       Height = 15
-      Top = 1
+      Top = 5
       Width = 240
       Caption = 'DB "Registers" wich contains an array of word'
     end
     object ShapeLineBGRA1: TShapeLineBGRA
       Left = 192
-      Height = 56
-      Top = 24
+      Height = 52
+      Top = 28
       Width = 40
       Direction = drUpDown
       LineColor = clBlack
@@ -1302,7 +1303,7 @@ object CommSettingsForm: TCommSettingsForm
     object Label25: TLabel
       Left = 278
       Height = 92
-      Top = 194
+      Top = 154
       Width = 168
       AutoSize = False
       Caption = 'Note:'#13#10'The Registers number must be inserted in Modbus format.'#13#10'The communication driver will translate them in Siemens format automatically.'
@@ -1325,7 +1326,7 @@ object CommSettingsForm: TCommSettingsForm
     object Label27: TLabel
       Left = 278
       Height = 15
-      Top = 20
+      Top = 24
       Width = 141
       Caption = 'R : Array[1..Max] of Word'
       Font.Style = [fsBold]
@@ -1385,5 +1386,326 @@ object CommSettingsForm: TCommSettingsForm
     Font.Style = [fsItalic]
     ParentFont = False
     WordWrap = True
+  end
+  object gbAddress0: TGroupBox
+    Left = 392
+    Height = 266
+    Top = 64
+    Width = 456
+    Caption = 'Addressing Scheme'
+    ClientHeight = 246
+    ClientWidth = 452
+    ParentBackground = False
+    TabOrder = 9
+    object Label33: TLabel
+      Left = 224
+      Height = 15
+      Top = 24
+      Width = 48
+      Caption = 'example:'
+      OnClick = Label18Click
+    end
+    object StaticText13: TStaticText
+      Left = 32
+      Height = 20
+      Top = 86
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 0'
+      Color = clInfoBk
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      ParentColor = False
+      TabOrder = 0
+    end
+    object StaticText14: TStaticText
+      Left = 32
+      Height = 20
+      Top = 105
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 1'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 1
+    end
+    object StaticText15: TStaticText
+      Left = 32
+      Height = 20
+      Top = 124
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 2'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 2
+    end
+    object StaticText16: TStaticText
+      Left = 32
+      Height = 20
+      Top = 143
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 3'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 3
+    end
+    object StaticText17: TStaticText
+      Left = 32
+      Height = 20
+      Top = 162
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 4'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 4
+    end
+    object StaticText18: TStaticText
+      Left = 32
+      Height = 20
+      Top = 181
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'Register 5'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 5
+    end
+    object StaticText19: TStaticText
+      Left = 168
+      Height = 20
+      Top = 86
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[0]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 6
+    end
+    object StaticText20: TStaticText
+      Left = 168
+      Height = 20
+      Top = 105
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[1]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 7
+    end
+    object StaticText21: TStaticText
+      Left = 168
+      Height = 20
+      Top = 124
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[2]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 8
+    end
+    object StaticText22: TStaticText
+      Left = 168
+      Height = 20
+      Top = 143
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[3]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 9
+    end
+    object StaticText23: TStaticText
+      Left = 168
+      Height = 20
+      Top = 162
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[4]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 10
+    end
+    object StaticText24: TStaticText
+      Left = 168
+      Height = 20
+      Top = 181
+      Width = 85
+      Alignment = taCenter
+      BorderStyle = sbsSingle
+      Caption = 'R[5]'
+      Font.CharSet = ANSI_CHARSET
+      Font.Name = 'Consolas'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 11
+    end
+    object Label34: TLabel
+      Left = 168
+      Height = 15
+      Top = 5
+      Width = 240
+      Caption = 'DB "Registers" wich contains an array of word'
+    end
+    object ShapeLineBGRA2: TShapeLineBGRA
+      Left = 192
+      Height = 52
+      Top = 28
+      Width = 40
+      Direction = drUpDown
+      LineColor = clBlack
+      ArrowColor = clBlack
+      LineWidth = 1
+      Arrow2 = True
+    end
+    object Label35: TLabel
+      Left = 276
+      Height = 15
+      Top = 86
+      Width = 85
+      Caption = '"Registers".DW0'
+    end
+    object Label36: TLabel
+      Left = 276
+      Height = 15
+      Top = 107
+      Width = 85
+      Caption = '"Registers".DW2'
+    end
+    object Label37: TLabel
+      Left = 11
+      Height = 15
+      Top = 56
+      Width = 121
+      Caption = 'Holding Registers Pack'
+      OnClick = Label18Click
+    end
+    object Label38: TLabel
+      Left = 11
+      Height = 32
+      Top = 216
+      Width = 121
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Modbus'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -19
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Label18Click
+    end
+    object Label39: TLabel
+      Left = 151
+      Height = 32
+      Top = 216
+      Width = 121
+      Alignment = taCenter
+      AutoSize = False
+      Caption = 'Siemens'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -19
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Label18Click
+    end
+    object Label40: TLabel
+      Left = 278
+      Height = 92
+      Top = 154
+      Width = 168
+      AutoSize = False
+      Caption = 'Note:'#13#10'The Registers number must be inserted in Modbus format.'#13#10'The communication driver will translate them in Siemens format automatically.'
+      Color = clInfoBk
+      Font.Quality = fqCleartypeNatural
+      Font.Style = [fsItalic]
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+    object Label41: TLabel
+      Left = 276
+      Height = 15
+      Top = 65
+      Width = 107
+      Caption = 'Absolute addressing'
+      OnClick = Label18Click
+    end
+    object Label42: TLabel
+      Left = 278
+      Height = 15
+      Top = 24
+      Width = 153
+      Caption = 'R : Array[0..Max-1] of Word'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = Label18Click
+    end
+    object Label43: TLabel
+      Left = 276
+      Height = 15
+      Top = 128
+      Width = 85
+      Caption = '"Registers".DW4'
+    end
+  end
+  object chkAutosave: TCheckBox
+    Left = 395
+    Height = 19
+    Top = 346
+    Width = 148
+    Caption = 'Autosave Project on Run'
+    TabOrder = 10
   end
 end

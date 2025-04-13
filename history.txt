@@ -6,3 +6,10 @@
         - Elevator Call
         - Traffic Light
       - Codesys examples added 
+1.0.3 - Save/Restore Main form aspect (Position, Width, Height)
+      - Autosave option on Run
+      - Small bugfix in Digital I/O (Display input as integer)
+      - Added Enable/Disable channel for Digital I/O
+      - New Modules added:
+        - Vending Machine
+        - Pushbutton Keypad

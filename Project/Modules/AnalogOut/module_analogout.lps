@@ -18,7 +18,6 @@
         <ComponentName Value="AOUTSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="161"/>
         <CursorPos Y="166"/>
@@ -116,8 +115,9 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="369"/>
-        <CursorPos X="21" Y="383"/>
+        <CursorPos X="80" Y="385"/>
         <UsageCount Value="15"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

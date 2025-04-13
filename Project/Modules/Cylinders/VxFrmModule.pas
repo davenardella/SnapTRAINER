@@ -538,6 +538,7 @@ end;
 
 procedure TVxForm.Start;
 begin
+  ApplyParams;
   Timer.Enabled:=true;
   FRunning:=true;
 end;

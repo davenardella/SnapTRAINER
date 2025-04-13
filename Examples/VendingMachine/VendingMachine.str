@@ -1,0 +1,115 @@
+[Aspect]
+Left=519
+Top=108
+Width=1061
+Height=793
+
+[Communication]
+Autosave=1
+Width=1061
+Height=793
+Mode=1
+UseInputRegs=0
+ClientType=0
+UnitID_DB=1
+RefreshInterval=100
+DisOnError=0
+BaseAddressZero=1
+MBTCPParams.Address=127.0.0.1
+MBTCPParams.Port=502
+MBRTUParams.Parity=E
+MBRTUParams.DataBits=8
+MBRTUParams.StopBits=1
+MBRTUParams.Flow=0
+S7ISOParams.Address=172.17.10.250
+S7ISOParams.Rack=0
+S7ISOParams.Slot=0
+S7ISOParams.ConnectionType=1
+
+[SLOT_1]
+ModuleName=module_vendingmachine.dll
+Input_Reg=10
+Output_Reg=0
+FastWrite=1
+CurrencyEur=1
+Price_1=30
+Price_2=75
+Price_3=90
+Price_4=110
+Price_5=0
+ModuleCaption=Vending Machine
+
+[SLOT_2]
+ModuleName=module_cylinders.dll
+Input_Reg=11
+Output_Reg=1
+CyAmount=4
+CY1.Caption=Product 1
+CY1.Stroke=100
+CY1.SpeedExtend=50
+CY1.SpeedRetract=199
+CY1.SpringReturn=0
+CY1.HasExtended=1
+CY1.HasRetracted=1
+CY1.InitialPosition=1
+CY2.Caption=Product 2
+CY2.Stroke=100
+CY2.SpeedExtend=50
+CY2.SpeedRetract=200
+CY2.SpringReturn=0
+CY2.HasExtended=1
+CY2.HasRetracted=1
+CY2.InitialPosition=1
+CY3.Caption=Product 3
+CY3.Stroke=100
+CY3.SpeedExtend=50
+CY3.SpeedRetract=200
+CY3.SpringReturn=0
+CY3.HasExtended=1
+CY3.HasRetracted=1
+CY3.InitialPosition=1
+CY4.Caption=Product 4
+CY4.Stroke=100
+CY4.SpeedExtend=50
+CY4.SpeedRetract=200
+CY4.SpringReturn=0
+CY4.HasExtended=1
+CY4.HasRetracted=1
+CY4.InitialPosition=1
+ModuleCaption=Product Ejectors
+
+[SLOT_4]
+ModuleName=module_text.dll
+Input_Reg=14
+TextAlignment.A=4
+TextHeight.A=30
+TextColor.A=16776960
+Text_A.0=WAIT COIN OR SELECTION
+Text_A.1=MOVING LIFT TO PRODUCT
+Text_A.2=MOVING LIFT TO PRODUCT
+Text_A.3=MOVING LIFT TO PRODUCT
+Text_A.4=EJECTING THE PRODUCT
+Text_A.5=EJECTING THE PRODUCT
+Text_A.6=EJECTING THE PRODUCT
+Text_A.7=MOVING LIFT TO HOME
+Text_A.8=MOVING LIFT TO HOME
+Text_A.99=MACHINE REALIGNMENT
+Text_A.100=MACHINE REALIGNMENT
+TextAlignment.B=4
+TextHeight.B=30
+TextColor.B=33023
+Text_B.1=PRODUCT 1 SELECTED
+Text_B.2=PRODUCT 2 SELECTED
+Text_B.3=PRODUCT 3 SELECTED
+Text_B.4=PRODUCT 4 SELECTED
+ModuleCaption=Text Display
+
+[SLOT_5]
+ModuleName=module_simplemotor.dll
+Ctrl_Reg=12
+SetPos_Reg=13
+Status_Reg=2
+CurPos_Reg=3
+ScrewLength=8000
+SpeedSet=4000
+ModuleCaption=Simple Motor

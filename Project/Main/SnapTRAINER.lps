@@ -8,10 +8,9 @@
       <Unit>
         <Filename Value="SnapTRAINER.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <CursorPos Y="24"/>
-        <UsageCount Value="113"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="12" Y="10"/>
+        <UsageCount Value="118"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmMain.pas"/>
@@ -19,10 +18,9 @@
         <ComponentName Value="MainForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="555"/>
-        <CursorPos X="3" Y="589"/>
-        <UsageCount Value="103"/>
+        <TopLine Value="220"/>
+        <CursorPos X="8" Y="226"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -34,7 +32,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
         <CursorPos X="52" Y="139"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="94"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -44,12 +42,10 @@
         <ComponentName Value="AboutForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="10"/>
-        <TopLine Value="34"/>
-        <CursorPos X="8" Y="58"/>
-        <UsageCount Value="85"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="35"/>
+        <CursorPos X="13" Y="38"/>
+        <UsageCount Value="90"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\dll\VxFrmMain.pas"/>
@@ -104,9 +100,9 @@
       <Unit>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="3569"/>
-        <CursorPos Y="3612"/>
-        <UsageCount Value="8"/>
+        <TopLine Value="1347"/>
+        <CursorPos Y="1365"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\controls.pp"/>
@@ -209,18 +205,18 @@
       </Unit>
       <Unit>
         <Filename Value="VxController.pas"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="527"/>
-        <CursorPos X="27" Y="558"/>
-        <UsageCount Value="43"/>
+        <CursorPos X="5" Y="558"/>
+        <UsageCount Value="45"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxModule.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="136"/>
         <CursorPos X="14" Y="170"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -230,7 +226,7 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraimagelist.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraimagelist.pas"/>
         <UnitName Value="BGRAImageList"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="8" Y="49"/>
@@ -238,18 +234,19 @@
       </Unit>
       <Unit>
         <Filename Value="VxCommTypes.pas"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="14"/>
-        <CursorPos X="31" Y="44"/>
-        <UsageCount Value="41"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="22"/>
+        <CursorPos X="71" Y="49"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxClient.pas"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="147"/>
         <CursorPos X="27" Y="156"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -272,10 +269,10 @@
         <ComponentName Value="CommSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="9"/>
-        <TopLine Value="326"/>
-        <CursorPos X="55" Y="345"/>
-        <UsageCount Value="42"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="379"/>
+        <CursorPos Y="389"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -284,10 +281,10 @@
         <ComponentName Value="VxSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="34"/>
         <CursorPos X="12" Y="45"/>
-        <UsageCount Value="15"/>
+        <UsageCount Value="17"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -331,12 +328,12 @@
       <Unit>
         <Filename Value="C:\lazarus\lcl\include\application.inc"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1265"/>
-        <CursorPos X="53" Y="1275"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="1051"/>
+        <CursorPos Y="1086"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bcpanel.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bcpanel.pas"/>
         <UnitName Value="BCPanel"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
@@ -509,10 +506,10 @@
       </Unit>
       <Unit>
         <Filename Value="..\Lib\SnapMB.pas"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="121"/>
         <CursorPos X="8" Y="144"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -585,7 +582,7 @@
         <UsageCount Value="12"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\uecontrols-master\source\ueled.pas"/>
+        <Filename Value="..\..\..\..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\uecontrols-master\source\ueled.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="71" Y="20"/>
         <UsageCount Value="10"/>
@@ -598,127 +595,176 @@
         <CursorPos X="54" Y="28"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\Modules\TrafficLight\VxFrmModule.pas"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="178"/>
+        <CursorPos X="61" Y="189"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\SnapTRAINER\Test_CM5.str"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\SnapTRAINER\loopback.str"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="39" Y="25"/>
+        <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="712"/>
+        <CursorPos Y="732"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\scrollingwincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="52"/>
+        <CursorPos Y="76"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\SnapTRAINER\empty.str"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit>
+      <Unit>
+        <Filename Value="VxFrmAbout.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="151" Column="23" TopLine="148"/>
+        <Caret Line="497" Column="3" TopLine="502"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="121" Column="15" TopLine="102"/>
-      </Position>
-      <Position>
-        <Filename Value="SnapTRAINER.lpr"/>
-        <Caret Line="22"/>
+        <Caret Line="259" TopLine="252"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="612" TopLine="584"/>
+        <Caret Line="143" Column="15" TopLine="113"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="613" TopLine="585"/>
+        <Caret Line="810" Column="66" TopLine="797"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="584" TopLine="566"/>
+        <Caret Line="109" Column="18" TopLine="93"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="585" Column="13" TopLine="566"/>
+        <Caret Line="133" Column="31" TopLine="105"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="80" Column="21" TopLine="66"/>
+        <Caret Line="509" Column="11" TopLine="500"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="151" TopLine="148"/>
+        <Caret Line="384" TopLine="383"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="87" Column="22" TopLine="68"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="112" Column="22" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="231" Column="3" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="133" Column="30" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="266" Column="45" TopLine="265"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="232" Column="20" TopLine="230"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="140" Column="15" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="379" Column="20" TopLine="353"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="268" Column="13" TopLine="251"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="359" TopLine="353"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="146" Column="19" TopLine="127"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="206" Column="3" TopLine="173"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="141" Column="15" TopLine="109"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="349" TopLine="342"/>
+      </Position>
+      <Position>
+        <Filename Value="VxCommSettings.pas"/>
+        <Caret Line="142" Column="15" TopLine="125"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="611" TopLine="595"/>
+        <Caret Line="143" Column="17" TopLine="116"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="584" Column="23" TopLine="566"/>
-      </Position>
-      <Position>
-        <Filename Value="SnapTRAINER.lpr"/>
-        <Caret Line="24"/>
+        <Caret Line="818" Column="27" TopLine="801"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="218" Column="35" TopLine="206"/>
+        <Caret Line="144" Column="15" TopLine="127"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="129" Column="15" TopLine="114"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmMonitor.pas"/>
-        <Caret Line="139" Column="52" TopLine="128"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="71" Column="5" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="98" Column="20" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="133" Column="4" TopLine="131"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="88" Column="19" TopLine="82"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="556" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="558" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="561" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="563" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="VxController.pas"/>
-        <Caret Line="561" Column="16" TopLine="539"/>
-      </Position>
-      <Position>
-        <Filename Value="VxModule.pas"/>
-        <Caret Line="224" Column="15" TopLine="206"/>
-      </Position>
-      <Position>
-        <Filename Value="VxModule.pas"/>
-        <Caret Line="52" Column="14" TopLine="36"/>
+        <Caret Line="843" Column="3" TopLine="839"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="813" TopLine="807"/>
+        <Caret Line="142" Column="15" TopLine="127"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="80" TopLine="53"/>
+        <Caret Line="732" Column="63" TopLine="716"/>
       </Position>
       <Position>
         <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="151" Column="3" TopLine="148"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmMain.pas"/>
-        <Caret Line="120" Column="15" TopLine="105"/>
+        <Caret Line="236" TopLine="224"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -740,4 +786,11 @@
       </List>
     </HistoryLists>
   </ProjectSession>
+  <Debugging>
+    <Watches>
+      <Item>
+        <Expression Value="FChanged"/>
+      </Item>
+    </Watches>
+  </Debugging>
 </CONFIG>

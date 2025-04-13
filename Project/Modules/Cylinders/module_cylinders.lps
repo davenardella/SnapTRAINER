@@ -18,10 +18,7 @@
         <ComponentName Value="TCylindersSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="207"/>
-        <CursorPos Y="218"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -115,6 +112,9 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="538"/>
+        <CursorPos Y="542"/>
         <UsageCount Value="16"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -263,47 +263,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="27">
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="119" Column="15" TopLine="104"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="547" Column="3" TopLine="543"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="112" Column="15" TopLine="105"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="479" Column="3" TopLine="473"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="113" Column="15" TopLine="98"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="499" Column="3" TopLine="493"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="114" Column="15" TopLine="99"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="525" Column="3" TopLine="519"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="115" Column="15" TopLine="100"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="518" Column="3" TopLine="514"/>
-      </Position>
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="117" Column="15" TopLine="100"/>
@@ -375,6 +335,53 @@
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="610" Column="2" TopLine="588"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmSettings.pas"/>
+        <Caret Line="227" Column="26" TopLine="207"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="113" Column="22" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="508" Column="3" TopLine="498"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="113" Column="15" TopLine="101"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="509" Column="3" TopLine="497"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="72" Column="14" TopLine="56"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="64" Column="15" TopLine="57"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="173" Column="3" TopLine="173"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="71" Column="14" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="418" TopLine="401"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="117" Column="15" TopLine="97"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -39,6 +39,14 @@ type
     Top      : integer;
   end;
 
+  TFormAspect = record
+    Left   : integer;
+    Top    : integer;
+    Width  : integer;
+    Height : integer;
+  end;
+
+
   { TMainForm }
 
   TMainForm = class(TForm)
@@ -72,13 +80,17 @@ type
     Separator2: TMenuItem;
     Separator3: TMenuItem;
     SettingsItem: TMenuItem;
+    StartupTimer: TTimer;
     procedure btnAboutClick(Sender: TObject);
     procedure BtnMonitorClick(Sender: TObject);
     procedure btnOnTopClick(Sender: TObject);
     procedure btnPlayClick(Sender: TObject);
+    procedure FormChangeBounds(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure MainMenuPopup(Sender: TObject);
     procedure mnuExitClick(Sender: TObject);
     procedure mnuLoadProjectClick(Sender: TObject);
@@ -90,8 +102,11 @@ type
     procedure RemoveModuleItemClick(Sender: TObject);
     procedure RenameItemClick(Sender: TObject);
     procedure SettingsItemClick(Sender: TObject);
+    procedure StartupTimerTimer(Sender: TObject);
   private
     CommSettings     : TCommSettings;
+    Aspect           : TFormAspect;
+    DefaultAspect    : TFormAspect;
     FChanged         : boolean;
     FRunning         : boolean;
     Slots            : array[1..MaxSlot] of TRailSlot;
@@ -115,6 +130,7 @@ type
     procedure SetFCurrentFilename(AValue: string);
     procedure NewModule(Sender: TObject);
     procedure ExchangeSlot(Sender: TObject);
+    procedure SetDefaultAspect;
     procedure SetCaption;
     procedure InitCabinet;
     procedure InitModules;
@@ -144,12 +160,14 @@ implementation
 Uses
   VxCommSettings, VxFrmMonitor, VxFrmAbout, SnapMB, windirs;
 
+
 { TMainForm }
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   InitModules;
   SetDefaults(CommSettings);
+  SetDefaultAspect;
   CommController:=VxController.ControllerCreate(CommSettings);
   InitCabinet;
   InitFiles;
@@ -211,7 +229,12 @@ begin
     begin
       if FChanged then
       begin
-        if MessageDlg('Project changed','Do you want to save it before Run',mtConfirmation,[mbYes, mbNo],0)= mrYes then
+        if not CommSettings.Autosave then
+        begin
+          if MessageDlg('Project changed','Do you want to save it before Run',mtConfirmation,[mbYes, mbNo],0)= mrYes then
+            SaveProject;
+        end
+        else
           SaveProject;
       end;
       Start;
@@ -221,10 +244,26 @@ begin
     Stop;
 end;
 
+procedure TMainForm.FormChangeBounds(Sender: TObject);
+begin
+  ProjectChanged:=true;
+end;
+
 procedure TMainForm.FormDestroy(Sender: TObject);
 begin
   CloseProject;
   VxController.ControllerDestroy;
+end;
+
+procedure TMainForm.FormResize(Sender: TObject);
+begin
+end;
+
+procedure TMainForm.FormShow(Sender: TObject);
+begin
+  With Aspect do
+    SetBounds(Left, Top, Width, Height);
+  StartupTimer.Enabled:=true;
 end;
 
 procedure TMainForm.MainMenuPopup(Sender: TObject);
@@ -354,6 +393,12 @@ begin
       ProjectChanged:=true;
  end;
 
+procedure TMainForm.StartupTimerTimer(Sender: TObject);
+begin
+  ProjectChanged:=false;
+  StartupTimer.Enabled:=false;
+end;
+
 function TMainForm.CheckSave: boolean;
 begin
   Result:=MessageDlg('Project changed','Do you want to save current Project',mtConfirmation,[mbYes, mbNo],0)= mrYes;
@@ -452,14 +497,23 @@ begin
   ProjectChanged:=true;
 end;
 
+procedure TMainForm.SetDefaultAspect;
+begin
+  Position:=poScreenCenter;
+  with DefaultAspect do
+  begin
+    Left  := (Screen.Width - 1625) div 2;
+    Top   := (Screen.Height - 793) div 2;
+    Width := 1625;
+    Height:= 793;
+  end;
+end;
+
 procedure TMainForm.InitCabinet;
 Var
   C,X,Y,Z : integer;
   Item : TMenuItem;
 begin
-  Position:=poScreenCenter;
-  Width:=1625;
-  Height:=793;
   fillchar(Slots, SizeOf(Slots), #0);
 
   X:=StartX;
@@ -624,6 +678,9 @@ procedure TMainForm.NewProject;
 begin
   CloseProject;
   CurrentFilename:=FDefaultFilename;
+  with DefaultAspect do
+    SetBounds(Left, Top, Width, Height);
+  StartupTimer.Enabled:=true;
 end;
 
 procedure TMainForm.OpenProject;
@@ -671,7 +728,15 @@ begin
   ini:=TMemIniFile.Create(FCurrentFilename);
   try
     ini.Clear;
+    // Aspect
+    ini.WriteInteger('Aspect','Left',Self.Left);
+    ini.WriteInteger('Aspect','Top',Self.Top);
+    ini.WriteInteger('Aspect','Width',Self.Width);
+    ini.WriteInteger('Aspect','Height',Self.Height);
     // Common
+    ini.WriteBool(CommSection,'Autosave',CommSettings.Autosave);
+    ini.WriteInteger(CommSection,'Width',Self.Width);
+    ini.WriteInteger(CommSection,'Height',Self.Height);
     ini.WriteInteger(CommSection,'Mode',ord(CommSettings.Mode));
     ini.WriteBool(CommSection,'UseInputRegs',CommSettings.UseInputRegs);
     ini.WriteInteger(CommSection,'ClientType',ord(CommSettings.ProtocolType));
@@ -717,6 +782,7 @@ Var
   Procedure ReadCommParams;
   begin
     // Common
+    CommSettings.Autosave:=ini.ReadBool(CommSection,'Autosave',CommSettings.Autosave);
     CommSettings.Mode:=TControllerMode(ini.ReadInteger(CommSection,'Mode',ord(CommSettings.Mode)));
     CommSettings.UseInputRegs:=ini.ReadBool(CommSection,'UseInputRegs',CommSettings.UseInputRegs);
     CommSettings.ProtocolType:=TProtocolType(ini.ReadInteger(CommSection,'ClientType',ord(CommSettings.ProtocolType)));
@@ -743,6 +809,14 @@ Var
     CommController.ChangeTo(CommSettings);
   end;
 
+  procedure ReadAspect;
+  begin
+    Aspect.Left  :=ini.ReadInteger('Aspect','Left',DefaultAspect.Left);
+    Aspect.Top   :=ini.ReadInteger('Aspect','Top',DefaultAspect.Top);
+    Aspect.Width :=ini.ReadInteger('Aspect','Width',DefaultAspect.Width);
+    Aspect.Height:=ini.ReadInteger('Aspect','Height',DefaultAspect.Height);
+  end;
+
 begin
   ini:=TMemIniFile.Create(FCurrentFilename);
   c:=1;
@@ -761,7 +835,10 @@ begin
       inc(c);
     end;
     if not Error then
+    begin
       ReadCommParams;
+      ReadAspect;
+    end;
   finally
     ini.Free;
   end;

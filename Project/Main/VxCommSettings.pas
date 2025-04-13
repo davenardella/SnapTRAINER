@@ -28,12 +28,14 @@ type
     cbParity: TComboBox;
     cbPort: TComboBox;
     cbStopBits: TComboBox;
+    chkAutosave: TCheckBox;
     ChkBaseAddressZero: TCheckBox;
     ChkDisOnError: TCheckBox;
     ChkUseIReg: TCheckBox;
     edMBAddress: TEdit;
     edS7Address: TEdit;
-    GroupBox1: TGroupBox;
+    gbAddress1: TGroupBox;
+    gbAddress0: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -58,6 +60,17 @@ type
     Label30: TLabel;
     Label31: TLabel;
     Label32: TLabel;
+    Label33: TLabel;
+    Label34: TLabel;
+    Label35: TLabel;
+    Label36: TLabel;
+    Label37: TLabel;
+    Label38: TLabel;
+    Label39: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
     lblUnit: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -73,6 +86,7 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     ShapeLineBGRA1: TShapeLineBGRA;
+    ShapeLineBGRA2: TShapeLineBGRA;
     speRefreshInterval: TSpinEdit;
     speSlot: TSpinEdit;
     speUnitID: TSpinEdit;
@@ -82,7 +96,19 @@ type
     StaticText10: TStaticText;
     StaticText11: TStaticText;
     StaticText12: TStaticText;
+    StaticText13: TStaticText;
+    StaticText14: TStaticText;
+    StaticText15: TStaticText;
+    StaticText16: TStaticText;
+    StaticText17: TStaticText;
+    StaticText18: TStaticText;
+    StaticText19: TStaticText;
     StaticText2: TStaticText;
+    StaticText20: TStaticText;
+    StaticText21: TStaticText;
+    StaticText22: TStaticText;
+    StaticText23: TStaticText;
+    StaticText24: TStaticText;
     StaticText3: TStaticText;
     StaticText4: TStaticText;
     StaticText5: TStaticText;
@@ -98,12 +124,14 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure cbProtocolCloseUp(Sender: TObject);
     procedure cbModeCloseUp(Sender: TObject);
+    procedure ChkBaseAddressZeroClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Label18Click(Sender: TObject);
   private
     procedure InitComboBoxes;
+    procedure SetAddressLegend;
     procedure UpdateCBProtocol;
     procedure UpdateProtocol;
   protected
@@ -127,6 +155,7 @@ implementation
 procedure SetDefaults(var Settings : TCommSettings);
 begin
   // Common
+  Settings.Autosave:=true;
   Settings.Mode:=cmClient;
   Settings.UseInputRegs:=true;
   Settings.ProtocolType:=ctMBTCP;
@@ -200,6 +229,11 @@ begin
   UpdateProtocol;
 end;
 
+procedure TCommSettingsForm.ChkBaseAddressZeroClick(Sender: TObject);
+begin
+  SetAddressLegend;
+end;
+
 procedure TCommSettingsForm.FormCreate(Sender: TObject);
 begin
   InitComboBoxes;
@@ -229,6 +263,19 @@ begin
   for c:=1 to 64 do
     cbPort.Items.Add('COM'+IntToStr(c));
   cbPort.ItemIndex:=0;
+end;
+
+procedure TCommSettingsForm.SetAddressLegend;
+begin
+  if chkBaseAddressZero.Checked then
+  begin
+    gbAddress1.Visible:=false;
+    gbAddress0.Visible:=true;
+  end
+  else begin
+    gbAddress0.Visible:=false;
+    gbAddress1.Visible:=true;
+  end;
 end;
 
 procedure TCommSettingsForm.UpdateCBProtocol;
@@ -298,6 +345,7 @@ Var
   ch : char;
 begin
   // Common
+  chkAutosave.Checked:=Settings.Autosave;
   cbMode.ItemIndex:=ord(Settings.Mode);
   ChkUseIReg.Checked:=Settings.UseInputRegs;
   cbProtocol.ItemIndex:=ord(Settings.ProtocolType);
@@ -331,11 +379,13 @@ begin
   UpdateCBProtocol;
   cbProtocol.ItemIndex:=ord(Settings.ProtocolType);
   UpdateProtocol;
+  SetAddressLegend;
 end;
 
 procedure TCommSettingsForm.FormToSettings;
 begin
   // Common
+  Settings.Autosave:=chkAutosave.Checked;
   Settings.Mode:=TControllerMode(cbMode.ItemIndex);
   Settings.UseInputRegs:=ChkUseIReg.Checked;
   Settings.ProtocolType:=TProtocolType(cbProtocol.ItemIndex);

@@ -14,6 +14,8 @@ type
   TDigitalIOParams = record
     Input_Reg  : word;
     Output_Reg : word;
+    Input_Ena  : boolean;
+    Output_Ena : boolean;
     FastWrite  : boolean;
   end;
 
@@ -99,7 +101,7 @@ type
     Label9: TLabel;
     InputDisplay: TLEDNumber;
     OutputDisplay: TLEDNumber;
-    Panel1: TPanel;
+    PnlOutput: TPanel;
     TempDisplay: TPanel;
     Timer: TTimer;
     LedCom_1: TuELED;
@@ -183,24 +185,6 @@ Const
 
 var
   VxForm: TVxForm;
-
-function StrIntValue(V : integer; Const width : integer = 6) : string;
-Var
-  isNeg : boolean;
-  S : string;
-begin
-  isNeg:=V<0;
-  if IsNeg then
-    V:=Abs(V);
-  S:=IntToStr(V);
-
-  while Length(S)<width do
-    S:=' '+S;
-  if isNeg then
-    Result:='-'+S
-  else
-    Result:='+'+S;
-end;
 
 { TVxForm }
 
@@ -302,13 +286,19 @@ procedure TVxForm.TimerTimer(Sender: TObject);
 Var
   Value  : word;
 begin
-  Regs[1].Status:=CommRegisterRead(Regs[1].Index, {%H-}Value);
-  if Regs[1].Status = _rsOK then
-    InputValue:=Value;
-  SetLedStatus(LedCom[1], Regs[1].Status);
+  if Params.Input_Ena then
+  begin
+    Regs[1].Status:=CommRegisterRead(Regs[1].Index, {%H-}Value);
+    if Regs[1].Status = _rsOK then
+      InputValue:=Value;
+    SetLedStatus(LedCom[1], Regs[1].Status);
+  end;
 
-  Regs[2].Status:=CommRegisterStatus(_rkWrite, Regs[2].Index);
-  SetLedStatus(LedCom[2], Regs[2].Status);
+  if Params.Output_Ena then
+  begin
+    Regs[2].Status:=CommRegisterStatus(_rkWrite, Regs[2].Index);
+    SetLedStatus(LedCom[2], Regs[2].Status);
+  end;
 end;
 
 procedure TVxForm.EnergyZero;
@@ -320,14 +310,54 @@ procedure TVxForm.SetDefaultParams;
 begin
   Params.Input_Reg :=1;
   Params.Output_Reg:=2;
+  Params.Input_Ena:=true;
+  Params.Output_Ena:=true;
   Params.FastWrite:=true;
 end;
 
 procedure TVxForm.ApplyParams;
+Var
+  c : integer;
 begin
-  // None Here
-  lblNameDO.Hint:='Write Reg : '+IntToStr(Params.Output_Reg);
-  lblNameDI.Hint:='Read Reg : '+IntToStr(Params.Input_Reg);
+  if Params.Input_Ena then
+  begin
+    btn_H.Enabled:=true;
+    btn_D.Enabled:=true;
+    btn_S.Enabled:=true;
+    InputDisplay.Caption:='  0000';
+    lblNameDI.Hint:='Read Reg : '+IntToStr(Params.Input_Reg);
+  end
+  else begin
+    btn_H.Enabled:=false;
+    btn_D.Enabled:=false;
+    btn_S.Enabled:=false;
+    InputDisplay.Caption:='------';
+    lblNameDI.Hint:='Read Reg : Disabled';
+    SetLedStatus(LedCom[1], 0);
+    for c:=0 to 15 do
+      Leds[c].Color:=LedColor[false];
+    InputBar.Value:=0;
+  end;
+
+  if Params.Output_Ena then
+  begin
+    PnlOutput.Enabled:=true;
+    OutputDisplay.Caption:='0000';
+    TempDisplay.Caption:='0000';
+    lblNameDO.Hint:='Write Reg : '+IntToStr(Params.Output_Reg);
+  end
+  else begin
+    PnlOutput.Enabled:=false;
+    lblNameDO.Hint:='Write Reg : Disabled';
+    SetLedStatus(LedCom[2], 0);
+    Updating:=true;
+    for c:=0 to 15 do
+      Switches[c].Checked:=false;
+    Updating:=false;
+    OutputDisplay.Caption:='----';
+    TempDisplay.Caption:='----';
+    OutputBar.Value:=0;
+  end;
 end;
 
 procedure TVxForm.SetFDisplayMode(AValue: TDisplayMode);
@@ -370,7 +400,7 @@ end;
 procedure TVxForm.SetFInputValue(AValue: word);
 Var
   c  : integer;
-  SV : integer;
+  Si : smallint absolute AValue;
 begin
   if FInputValue<>AValue then
   begin
@@ -385,8 +415,8 @@ begin
           InputDisplay.Caption:=RightJustify(IntToStr(FInputValue), 6);
         end;
         dmSigned : begin
-          SV:=FInputValue;
-          InputDisplay.Caption:=StrIntValue(SV-32768, 5);
+          Si:=FInputValue;
+          InputDisplay.Caption:=StrIntValue(si, 5);
         end;
       end;
     InputBar.Value:=FInputValue;
@@ -397,28 +427,29 @@ procedure TVxForm.SetFOutputValue(AValue: word);
 Var
   c : integer;
 begin
-  if FOutputValue<>AValue then
+  if Params.Output_Ena then
   begin
-    FOutputValue:=AValue;
-    OutputDisplay.Caption:=IntToHex(FOutputValue,4);
-    OutputBar.Value:=FOutputValue;
-    Updating:=true;
-    for c:=0 to 15 do
-      Switches[c].Checked:=(FOutputValue and Mask[c])<>0;
-    Updating:=false;
-
-    if FRunning then
+    if FOutputValue<>AValue then
     begin
-      if Params.FastWrite then
+      FOutputValue:=AValue;
+      OutputDisplay.Caption:=IntToHex(FOutputValue,4);
+      OutputBar.Value:=FOutputValue;
+      Updating:=true;
+      for c:=0 to 15 do
+        Switches[c].Checked:=(FOutputValue and Mask[c])<>0;
+      Updating:=false;
+
+      if FRunning then
       begin
-        Regs[2].Status:=CommRegisterFastWrite(Regs[2].Index,FOutputValue);
-        SetLedStatus(LedCom[2],Regs[2].Status);
-      end
-      else
-        CommRegisterWrite(Regs[2].Index,FOutputValue);
-    end
-    else
-      InputValue:=FOutputValue;
+        if Params.FastWrite then
+        begin
+          Regs[2].Status:=CommRegisterFastWrite(Regs[2].Index,FOutputValue);
+          SetLedStatus(LedCom[2],Regs[2].Status);
+        end
+        else
+          CommRegisterWrite(Regs[2].Index,FOutputValue);
+      end;
+    end;
   end;
 end;
 
@@ -426,8 +457,13 @@ procedure TVxForm.Start;
 begin
   Timer.Enabled:=true;
   FRunning:=true;
-  Regs[2].Status:=CommRegisterFastWrite(Regs[2].Index,FOutputValue);
-  SetLedStatus(LedCom[2],Regs[2].Status);
+  if Params.Output_Ena then
+  begin
+    Regs[2].Status:=CommRegisterFastWrite(Regs[2].Index,FOutputValue);
+    SetLedStatus(LedCom[2],Regs[2].Status);
+  end
+  else
+    SetLedStatus(LedCom[2],0);
 end;
 
 procedure TVxForm.Stop;
@@ -440,8 +476,10 @@ end;
 
 procedure TVxForm.PrepareStart;
 begin
-  Regs[1].Index:=CommReadRegisterAdd(Params.Input_Reg);
-  Regs[2].Index:=CommWriteRegisterAdd(Params.Output_Reg,Integer(Params.FastWrite),0);
+  if Params.Input_Ena then
+    Regs[1].Index:=CommReadRegisterAdd(Params.Input_Reg);
+  if Params.Output_Ena then
+    Regs[2].Index:=CommWriteRegisterAdd(Params.Output_Reg,Integer(Params.FastWrite),0);
   EnergyZero;
 end;
 
@@ -467,7 +505,9 @@ begin
     ini:=TMemIniFile.Create(FileName);
     try
       Params.Input_Reg:=ini.ReadInteger(Section,'Input_Reg',Params.Input_Reg);
+      Params.Input_Ena:=ini.ReadBool(Section,'Input_Ena',Params.Input_Ena);
       Params.Output_Reg:=ini.ReadInteger(Section,'Output_Reg',Params.Output_Reg);
+      Params.Output_Ena:=ini.ReadBool(Section,'Output_Ena',Params.Output_Ena);
       Params.FastWrite:=ini.ReadBool(Section,'FastWrite',Params.FastWrite);
     finally
       ini.Free;
@@ -486,7 +526,9 @@ begin
   try
     ini.WriteString(Section, 'ModuleName', FName);
     ini.WriteInteger(Section,'Input_Reg',Params.Input_Reg);
+    ini.WriteBool(Section,'Input_Ena',Params.Input_Ena);
     ini.WriteInteger(Section,'Output_Reg',Params.Output_Reg);
+    ini.WriteBool(Section,'Output_Ena',Params.Output_Ena);
     ini.WriteBool(Section,'FastWrite',Params.FastWrite);
     ini.UpdateFile;
   finally

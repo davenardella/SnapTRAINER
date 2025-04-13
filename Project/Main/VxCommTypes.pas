@@ -35,6 +35,7 @@ Type
   TControllerMode = (cmClient, cmDevice);
 
   TCommSettings = record
+    Autosave        : boolean;
     Mode            : TControllerMode;
     UseInputRegs    : boolean;
     UnitID_DB       : integer;

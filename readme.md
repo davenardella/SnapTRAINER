@@ -705,6 +705,34 @@ These are its parameters.
 
 By inserting 4 car traffic lights and 4 pedestrian traffic lights into SnapTRAINER you can simulate a complete road intersection.
 
+### Vending Machine Module
+
+With this module you can simulate a Vending machine.
+
+![](img/vendingmachine.PNG)
+
+You can insert coins (by pressing the appropriate buttons) and select a product.
+Below is a complete example of how to make a dispenser complete with ejectors and elevator for picking up products.
+
+![](img/vending_example.PNG)
+
+These are its parameters.
+
+![](img/vendingmachine_settings.PNG)
+
+It is also possible to enter the amounts and select the currency in use.
+
+### Numeric Keypad Module
+
+This is a simple keyboard that can work either in instant mode (each button is associated with a bit) or in input mode for integers, with or without sign.
+It is convenient for small experiments for access codes and so on.
+
+![](img/numkeypad.PNG)
+
+These are its parameters.
+
+![](img/numkeypad_settings.PNG)
+
 ## Testing of modules without a PLC
 
 Sometimes it can be convenient to test the various modules without a PLC to check their behavior and parameter settings very quickly. 

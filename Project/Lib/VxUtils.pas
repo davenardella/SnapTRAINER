@@ -42,6 +42,7 @@ function BitsToWord(Bits : TWordBits) : word;
 function RegisterConflictMsg(Index, Register : integer) : string;
 procedure SetLedStatus(Led : TuELED; Status : integer);
 function RightJustify(s : string; L : integer) : string;
+function StrIntValue(V : integer; Const width : integer = 6; const ShowPlus : boolean = true) : string;
 
 implementation
 
@@ -102,6 +103,28 @@ begin
   Result:=S;
   while Length(Result)<L do
     Result:=' '+Result;
+end;
+
+function StrIntValue(V : integer; Const width : integer = 6; const ShowPlus : boolean = true) : string;
+Var
+  isNeg : boolean;
+  S : string;
+begin
+  isNeg:=V<0;
+  if IsNeg then
+    V:=Abs(V);
+  S:=IntToStr(V);
+
+  while Length(S)<width do
+    S:=' '+S;
+  if isNeg then
+    Result:='-'+S
+  else begin
+    if ShowPlus then
+      Result:='+'+S
+    else
+      Result:=' '+S;
+  end;
 end;
 
 end.

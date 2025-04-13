@@ -13,7 +13,7 @@ object VxForm: TVxForm
   Constraints.MinHeight = 330
   Constraints.MinWidth = 480
   OnCreate = FormCreate
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.8.0.0'
   Visible = True
   object LedCom_1: TuELED
     Left = -1
@@ -527,7 +527,7 @@ object VxForm: TVxForm
     ParentShowHint = False
     ShowHint = True
   end
-  object Panel1: TPanel
+  object PnlOutput: TPanel
     Left = 2
     Height = 201
     Top = 107

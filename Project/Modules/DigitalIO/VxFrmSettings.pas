@@ -16,7 +16,9 @@ type
     btnCancel: TBCButton;
     btnAccept: TBCButton;
     btnBack: TBCButton;
+    ChOutput_Ena: TCheckBox;
     ChWriteFast: TCheckBox;
+    ChInput_Ena: TCheckBox;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     lblError: TLabel;
@@ -103,8 +105,13 @@ end;
 
 function TVxSettingsForm.CheckSettings: boolean;
 begin
-  if (speReadReg.Value = speWriteReg.Value) then
-    Result:=MessageDlg('Warning','You are using the same register for Read and Write. Do you confirm the chosen?',mtWarning,[mbYes, mbCancel],0) = mrYes
+  if ChInput_Ena.Checked and ChOutput_Ena.Checked then
+  begin
+    if (speReadReg.Value = speWriteReg.Value) then
+      Result:=MessageDlg('Warning','You are using the same register for Read and Write. Do you confirm the chosen?',mtWarning,[mbYes, mbCancel],0) = mrYes
+    else
+      Result:=true;
+  end
   else
     Result:=true;
 end;
@@ -113,6 +120,8 @@ procedure TVxSettingsForm.ParamsToForm;
 begin
   speReadReg.Value:=Params.Input_Reg;
   speWriteReg.Value:=Params.Output_Reg;
+  ChInput_Ena.Checked:=Params.Input_Ena;
+  ChOutput_Ena.Checked:=Params.Output_Ena;
   ChWriteFast.Checked:=Params.FastWrite;
 end;
 
@@ -120,6 +129,8 @@ procedure TVxSettingsForm.FormToParams;
 begin
   Params.Input_Reg:=speReadReg.Value;
   Params.Output_Reg:=speWriteReg.Value;
+  Params.Input_Ena:=ChInput_Ena.Checked;
+  Params.Output_Ena:=ChOutput_Ena.Checked;
   Params.FastWrite:=ChWriteFast.Checked;
 end;
 

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectGroup FileVersion="2">
+    <Targets>
+      <Target FileName="Main\SnapTRAINER.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\AnalogIN\module_analogin.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\AnalogOut\module_analogout.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\ControlKeypad\module_keypad.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\Cylinders\module_cylinders.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\DigitalIO\module_digitalio.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\ElevatorCab\module_elevatorcab.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\ElevatorCall\module_elevatorcall.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\Numeric\module_numeric.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\SimpleMotor\module_simplemotor.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\StepperMotor\module_steppermotor.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\Tank\module_tank.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\TestUnit\module_testunit.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\TextDisplay\module_text.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\TrafficLight\module_trafficlight.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\VendingMachine\module_vendingmachine.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+      <Target FileName="Modules\PushKeypad\module_pushkeypad.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
+    </Targets>
+  </ProjectGroup>
+</CONFIG>
