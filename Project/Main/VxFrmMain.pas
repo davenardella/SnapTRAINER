@@ -671,7 +671,9 @@ begin
   end;
 
   if FileExists(FCurrentFilename) then
-    LoadFromFile;
+    LoadFromFile
+  else
+    Aspect:=DefaultAspect;
 end;
 
 procedure TMainForm.NewProject;
