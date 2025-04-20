@@ -55,7 +55,7 @@ Type
     FSettings    : TCommSettings;
     FStarted     : boolean;
     FStopping    : boolean;
-    FInit        : boolean;
+    FirstCycle   : boolean;
     function IndexOf(Address : word; Registers : THoldingRegisters; Count : integer) : integer;
     procedure CreateWorker;
     procedure DestroyWorker;
@@ -188,11 +188,22 @@ procedure TCommController.ExecuteRead;
 Var
   Value : Word;
   c : integer;
+  UnitID_DB : integer;
 begin
+  if FSettings.ProtocolType=ctS7 then
+  begin
+    if FSettings.UseUnitID then
+      UnitID_DB:=FSettings.UnitID_DB
+    else
+      UnitID_DB:=FSettings.DB_RD;
+  end
+  else
+    UnitID_DB:=FSettings.UnitID_DB;
+
   c:=0;
   while (c < RD_RegCount) and FConnected do
   begin
-    RD_Registers[c].LastError:=Client.ReadWord(FSettings.UnitID_DB, RD_Registers[c].Address, Value);
+    RD_Registers[c].LastError:=Client.ReadWord(UnitID_DB, RD_Registers[c].Address, Value);
     if RD_Registers[c].LastError <> CommOK then
     begin
       FConnected:=Client.Connected;
@@ -215,42 +226,24 @@ end;
 procedure TCommController.ExecuteWrite;
 Var
   c : integer;
+  UnitID_DB : integer;
 begin
-  c:=0;
-
-  if FInit then
+  if FSettings.ProtocolType=ctS7 then
   begin
-    while (c < WR_RegCount) and FConnected do
-    begin
-      WR_Registers[c].LastError:=Client.WriteWord(FSettings.UnitID_DB, WR_Registers[c].Address, WR_Registers[c].Value);
-      if WR_Registers[c].LastError <> mbNoError then
-      begin
-        FConnected:=Client.Connected;
-        if not FConnected then
-          WR_Registers[c].Status:=rsNetError
-        else
-          WR_Registers[c].Status:=rsDataError;
-      end
-      else begin
-        WR_Registers[c].Status:=rsOk;
-        WR_Registers[c].Last:=WR_Registers[c].Value;
-      end;
-      inc(c);
-    end;
-
-    if not FConnected then
-      SetAll(rsNetError)
+    if FSettings.UseUnitID then
+      UnitID_DB:=FSettings.UnitID_DB
     else
-      FInit:=false;
+      UnitID_DB:=FSettings.DB_WR;
+  end
+  else
+    UnitID_DB:=FSettings.UnitID_DB;
 
-    exit;
-  end;
-
+  c:=0;
   while (c < WR_RegCount) and FConnected do
   begin
-    if (not WR_Registers[c].Fast) and (WR_Registers[c].Value<>WR_Registers[c].Last) then
+    if (not WR_Registers[c].Fast) or FirstCycle then
     begin
-      WR_Registers[c].LastError:=Client.WriteWord(FSettings.UnitID_DB, WR_Registers[c].Address, WR_Registers[c].Value);
+      WR_Registers[c].LastError:=Client.WriteWord(UnitID_DB, WR_Registers[c].Address, WR_Registers[c].Value);
       if WR_Registers[c].LastError <> mbNoError then
       begin
         FConnected:=Client.Connected;
@@ -259,16 +252,16 @@ begin
         else
           WR_Registers[c].Status:=rsDataError;
       end
-      else begin
+      else
         WR_Registers[c].Status:=rsOk;
-        WR_Registers[c].Last:=WR_Registers[c].Value;
-      end;
     end;
     inc(c);
   end;
 
   if not FConnected then
-    SetAll(rsNetError);
+    SetAll(rsNetError)
+  else
+    FirstCycle:=false;
 end;
 
 function TCommController.CreateDevice(Settings: TCommSettings): TSnapMBDevice;
@@ -369,7 +362,7 @@ begin
   Result:=true;
   if not FStarted then
   begin
-    FInit:=true;
+    FirstCycle:=true;
     if FSettings.Mode = cmDevice then
     begin
       Result:=Device.Start = 0;
@@ -422,12 +415,23 @@ begin
   if not Result then
     SetAll(rsNetError)
   else
-    FInit:=true;
+    FirstCycle:=true;
 end;
 
-function TCommController.FastWriteRegister(Index: integer; Value: word
-  ): TRegisterStatus;
+function TCommController.FastWriteRegister(Index: integer; Value: word): TRegisterStatus;
+Var
+  UnitID_DB : integer;
 begin
+  if FSettings.ProtocolType=ctS7 then
+  begin
+    if FSettings.UseUnitID then
+      UnitID_DB:=FSettings.UnitID_DB
+    else
+      UnitID_DB:=FSettings.DB_WR;
+  end
+  else
+    UnitID_DB:=FSettings.UnitID_DB;
+
   if not FStarted or FStopping or (Index>=WR_RegCount) then
     exit(rsUnknown);
 
@@ -443,7 +447,7 @@ begin
   Lock;
   try
     WR_Registers[index].Value:=Value;
-    WR_Registers[index].LastError:=Client.WriteWord(FSettings.UnitID_DB, WR_Registers[index].Address, WR_Registers[index].Value);
+    WR_Registers[index].LastError:=Client.WriteWord(UnitID_DB, WR_Registers[index].Address, WR_Registers[index].Value);
 
     if WR_Registers[index].LastError <> mbNoError then
     begin

@@ -761,6 +761,9 @@ begin
     ini.WriteInteger(CommSection,'S7ISOParams.Rack',CommSettings.S7ISOParams.Rack);
     ini.WriteInteger(CommSection,'S7ISOParams.Slot',CommSettings.S7ISOParams.Slot);
     ini.WriteInteger(CommSection,'S7ISOParams.ConnectionType',CommSettings.S7ISOParams.ConnectionType);
+    ini.WriteBool(CommSection,'UseUnitID',CommSettings.UseUnitID);
+    ini.WriteInteger(CommSection,'DB_RD',CommSettings.DB_RD);
+    ini.WriteInteger(CommSection,'DB_WR',CommSettings.DB_WR);
     ini.UpdateFile;
   finally
     ini.Free;
@@ -807,6 +810,9 @@ Var
     CommSettings.S7ISOParams.Rack:=ini.ReadInteger(CommSection,'S7ISOParams.Rack',CommSettings.S7ISOParams.Rack);
     CommSettings.S7ISOParams.Slot:=ini.ReadInteger(CommSection,'S7ISOParams.Slot',CommSettings.S7ISOParams.Slot);
     CommSettings.S7ISOParams.ConnectionType:=ini.ReadInteger(CommSection,'S7ISOParams.ConnectionType',CommSettings.S7ISOParams.ConnectionType);
+    CommSettings.UseUnitID:=ini.ReadBool(CommSection,'UseUnitID',CommSettings.UseUnitID);
+    CommSettings.DB_RD:=ini.ReadInteger(CommSection,'DB_RD',CommSettings.DB_RD);
+    CommSettings.DB_WR:=ini.ReadInteger(CommSection,'DB_WR',CommSettings.DB_WR);
 
     CommController.ChangeTo(CommSettings);
   end;

@@ -17,6 +17,7 @@
         <ComponentName Value="VendingMachineSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="123"/>
         <CursorPos Y="153"/>
@@ -112,7 +113,6 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="235"/>
         <CursorPos X="11" Y="252"/>
         <UsageCount Value="35"/>

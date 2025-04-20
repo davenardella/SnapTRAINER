@@ -152,6 +152,7 @@ end;
 
 procedure TVxForm.TimerTimer(Sender: TObject);
 begin
+  Regs[1].Status:=CommRegisterStatus(_rkWrite, Regs[1].Index);
   SetLedStatus(LedCom[1],Regs[1].Status);
 end;
 
@@ -346,7 +347,6 @@ begin
   FRunning:=true;
   OutputValue:=0;
   IValue:=0;
-  SetLedStatus(LedCom[1],Regs[1].Status);
 end;
 
 procedure TVxForm.Stop;

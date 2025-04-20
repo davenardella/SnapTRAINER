@@ -18,8 +18,9 @@
         <ComponentName Value="SettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="167"/>
+        <TopLine Value="166"/>
         <CursorPos X="16" Y="208"/>
         <UsageCount Value="59"/>
         <Loaded Value="True"/>
@@ -115,7 +116,6 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="372"/>
         <CursorPos X="56" Y="394"/>
@@ -306,7 +306,7 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\daven\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
         <UnitName Value="BGRAKnob"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="439"/>
@@ -323,7 +323,7 @@
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit>
       <Unit>
-        <Filename Value="C:\Users\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
+        <Filename Value="..\..\..\..\..\..\..\..\davide.nardella\AppData\Local\lazarus\onlinepackagemanager\packages\BGRAControls\bgraknob.pas"/>
         <UnitName Value="BGRAKnob"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="16"/>

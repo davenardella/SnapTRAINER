@@ -121,6 +121,13 @@
           <Mode Name="Release" Compile="True"/>
         </BuildModes>
       </Target>
+      <Target FileName="Modules\NumKeypad\module_numkeypad.lpi">
+        <BuildModes>
+          <Mode Name="Default"/>
+          <Mode Name="Debug"/>
+          <Mode Name="Release" Compile="True"/>
+        </BuildModes>
+      </Target>
     </Targets>
   </ProjectGroup>
 </CONFIG>

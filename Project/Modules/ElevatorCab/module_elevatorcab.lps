@@ -17,6 +17,7 @@
         <ComponentName Value="TElevatorCabSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="104"/>
         <CursorPos X="25" Y="124"/>
@@ -112,7 +113,6 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="323"/>
         <CursorPos X="47" Y="348"/>
         <UsageCount Value="29"/>

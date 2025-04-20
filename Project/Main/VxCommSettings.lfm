@@ -1,12 +1,12 @@
 object CommSettingsForm: TCommSettingsForm
-  Left = 706
-  Height = 451
-  Top = 320
-  Width = 864
+  Left = 427
+  Height = 478
+  Top = 241
+  Width = 856
   BorderStyle = bsToolWindow
   Caption = 'Settings'
-  ClientHeight = 451
-  ClientWidth = 864
+  ClientHeight = 478
+  ClientWidth = 856
   Color = clWhite
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -85,18 +85,18 @@ object CommSettingsForm: TCommSettingsForm
   object Panel1: TPanel
     Left = 0
     Height = 46
-    Top = 405
-    Width = 864
+    Top = 432
+    Width = 856
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 46
-    ClientWidth = 864
+    ClientWidth = 856
     Color = clBlack
     ParentBackground = False
     ParentColor = False
     TabOrder = 0
     object btnCancel: TBCButton
-      Left = 715
+      Left = 707
       Height = 34
       Top = 6
       Width = 67
@@ -270,7 +270,7 @@ object CommSettingsForm: TCommSettingsForm
       MemoryUsage = bmuHigh
     end
     object btnAccept: TBCButton
-      Left = 790
+      Left = 782
       Height = 34
       Top = 6
       Width = 67
@@ -446,12 +446,12 @@ object CommSettingsForm: TCommSettingsForm
     Left = 0
     Height = 45
     Top = 0
-    Width = 864
+    Width = 856
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Communication Settings'
     ClientHeight = 45
-    ClientWidth = 864
+    ClientWidth = 856
     Color = clBlack
     Font.CharSet = ANSI_CHARSET
     Font.Color = clWhite
@@ -686,8 +686,8 @@ object CommSettingsForm: TCommSettingsForm
   object lblError: TLabel
     Left = 0
     Height = 18
-    Top = 387
-    Width = 864
+    Top = 414
+    Width = 856
     Align = alBottom
     Alignment = taCenter
     AutoSize = False
@@ -700,17 +700,19 @@ object CommSettingsForm: TCommSettingsForm
   end
   object PC: TPageControl
     Left = 184
-    Height = 280
+    Height = 303
     Top = 102
-    Width = 185
-    ActivePage = TabSheet2
+    Width = 201
+    ActivePage = TabSheet3
     ShowTabs = False
-    TabIndex = 1
+    TabIndex = 2
     TabOrder = 4
+    OnChange = PCChange
     object TabSheet1: TTabSheet
       Caption = 'Modbus TCP'
-      ClientHeight = 272
-      ClientWidth = 177
+      ClientHeight = 295
+      ClientWidth = 193
+      OnContextPopup = TabSheet1ContextPopup
       object Label2: TLabel
         Left = 10
         Height = 15
@@ -751,8 +753,8 @@ object CommSettingsForm: TCommSettingsForm
     end
     object TabSheet2: TTabSheet
       Caption = 'Modbus RTU'
-      ClientHeight = 272
-      ClientWidth = 177
+      ClientHeight = 295
+      ClientWidth = 193
       object Label4: TLabel
         Left = 10
         Height = 15
@@ -927,8 +929,9 @@ object CommSettingsForm: TCommSettingsForm
     end
     object TabSheet3: TTabSheet
       Caption = 'S7 Protocol'
-      ClientHeight = 272
-      ClientWidth = 177
+      ClientHeight = 295
+      ClientWidth = 193
+      OnContextPopup = TabSheet3ContextPopup
       object Label12: TLabel
         Left = 10
         Height = 15
@@ -985,7 +988,7 @@ object CommSettingsForm: TCommSettingsForm
       object cbConnectionType: TComboBox
         Left = 10
         Height = 23
-        Top = 142
+        Top = 133
         Width = 144
         Color = clInfoBk
         ItemHeight = 15
@@ -1003,28 +1006,61 @@ object CommSettingsForm: TCommSettingsForm
       object Label15: TLabel
         Left = 10
         Height = 15
-        Top = 125
+        Top = 116
         Width = 89
         Caption = 'Connection Type'
         ParentColor = False
       end
-      object Label16: TLabel
+      object chkDB: TCheckBox
         Left = 10
-        Height = 88
-        Top = 176
-        Width = 100
-        AutoSize = False
-        Caption = 'Rack, Slot'#13#10'  S73XX direct '#13#10'  S73XX via CP343 '#13#10'  S71200/1500 '#13#10'  S74XX/VPLC '
-        WordWrap = True
+        Height = 19
+        Top = 168
+        Width = 178
+        Caption = 'Use different DB for read/write'
+        TabOrder = 4
+        OnChange = chkDBChange
       end
-      object Label17: TLabel
-        Left = 111
-        Height = 77
-        Top = 191
-        Width = 61
-        AutoSize = False
-        Caption = '0, 2'#13#10'0, 2'#13#10'0, 0'#13#10'Depends on HW cfg'
-        WordWrap = True
+      object lblUnit1: TLabel
+        Left = 10
+        Height = 15
+        Top = 199
+        Width = 130
+        Caption = 'DB Read (PLC->Module)'
+        ParentColor = False
+        ParentFont = False
+      end
+      object speDBRD: TSpinEdit
+        Left = 10
+        Height = 23
+        Top = 218
+        Width = 144
+        Color = clInfoBk
+        MaxValue = 65535
+        MinValue = 1
+        ParentFont = False
+        TabOrder = 5
+        Value = 255
+      end
+      object lblUnit2: TLabel
+        Left = 10
+        Height = 15
+        Top = 248
+        Width = 132
+        Caption = 'DB Write (Module->PLC)'
+        ParentColor = False
+        ParentFont = False
+      end
+      object speDBWR: TSpinEdit
+        Left = 10
+        Height = 23
+        Top = 267
+        Width = 144
+        Color = clInfoBk
+        MaxValue = 65535
+        MinValue = 1
+        ParentFont = False
+        TabOrder = 6
+        Value = 255
       end
     end
   end
@@ -1345,7 +1381,7 @@ object CommSettingsForm: TCommSettingsForm
     Left = 16
     Height = 23
     Top = 75
-    Width = 353
+    Width = 369
     Color = clInfoBk
     ItemHeight = 15
     ItemIndex = 0
@@ -1703,7 +1739,7 @@ object CommSettingsForm: TCommSettingsForm
   object chkAutosave: TCheckBox
     Left = 395
     Height = 19
-    Top = 346
+    Top = 359
     Width = 148
     Caption = 'Autosave Project on Run'
     TabOrder = 10

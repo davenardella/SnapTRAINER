@@ -631,7 +631,7 @@ object TankSettingsForm: TTankSettingsForm
       Top = 233
       Width = 178
       AutoSize = False
-      Caption = 'Bit 15 -> Level Max Sensor'
+      Caption = 'Bit 14 -> Level Min Sensor'
       ParentFont = False
     end
     object Label4: TLabel
@@ -640,7 +640,7 @@ object TankSettingsForm: TTankSettingsForm
       Top = 252
       Width = 178
       AutoSize = False
-      Caption = 'Bit 14 -> Level Min Sensor'
+      Caption = 'Bit 15 -> Level Max Sensor'
       ParentFont = False
     end
     object Label5: TLabel

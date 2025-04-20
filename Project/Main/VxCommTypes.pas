@@ -39,6 +39,9 @@ Type
     Mode            : TControllerMode;
     UseInputRegs    : boolean;
     UnitID_DB       : integer;
+    DB_RD           : integer;
+    DB_WR           : integer;
+    UseUnitID       : boolean;
     ProtocolType    : TProtocolType;
     RefreshInterval : integer;
     DisOnError      : boolean;

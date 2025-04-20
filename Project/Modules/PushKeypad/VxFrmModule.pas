@@ -257,7 +257,7 @@ procedure TVxForm.SetFOutputValue(AValue: word);
 begin
   FOutputValue:=AValue;
   if FRunning then
-    Regs[1].Status:=CommRegisterFastWrite(Regs[1].Index,FOutputValue);
+    Regs[2].Status:=CommRegisterFastWrite(Regs[2].Index,FOutputValue);
 end;
 
 procedure TVxForm.Start;
@@ -276,6 +276,7 @@ begin
   FRunning:=false;
   Timer.Enabled:=false;
   SetLedStatus(LedCom[1], 0);
+  SetLedStatus(LedCom[2], 0);
 end;
 
 procedure TVxForm.PrepareStart;

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
-  StdCtrls, Spin, BCButton, atshapelinebgra, SnapMB, VxCommTypes;
+  StdCtrls, Spin, BCButton, atshapelinebgra, SnapMB, VxCommTypes, Types;
 
 const
   ParityChar : array [0..2] of char = ('N','E','O');
@@ -28,6 +28,7 @@ type
     cbParity: TComboBox;
     cbPort: TComboBox;
     cbStopBits: TComboBox;
+    chkDB: TCheckBox;
     chkAutosave: TCheckBox;
     ChkBaseAddressZero: TCheckBox;
     ChkDisOnError: TCheckBox;
@@ -43,8 +44,6 @@ type
     Label13: TLabel;
     Label14: TLabel;
     Label15: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
     Label18: TLabel;
     Label19: TLabel;
     Label20: TLabel;
@@ -81,6 +80,8 @@ type
     Label8: TLabel;
     Label9: TLabel;
     lblError: TLabel;
+    lblUnit1: TLabel;
+    lblUnit2: TLabel;
     pnlClient: TPanel;
     PC: TPageControl;
     Panel1: TPanel;
@@ -92,6 +93,8 @@ type
     speUnitID: TSpinEdit;
     speRack: TSpinEdit;
     spePort: TSpinEdit;
+    speDBRD: TSpinEdit;
+    speDBWR: TSpinEdit;
     StaticText1: TStaticText;
     StaticText10: TStaticText;
     StaticText11: TStaticText;
@@ -125,10 +128,16 @@ type
     procedure cbProtocolCloseUp(Sender: TObject);
     procedure cbModeCloseUp(Sender: TObject);
     procedure ChkBaseAddressZeroClick(Sender: TObject);
+    procedure chkDBChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Label18Click(Sender: TObject);
+    procedure PCChange(Sender: TObject);
+    procedure TabSheet1ContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure TabSheet3ContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
   private
     procedure InitComboBoxes;
     procedure SetAddressLegend;
@@ -160,8 +169,11 @@ begin
   Settings.UseInputRegs:=true;
   Settings.ProtocolType:=ctMBTCP;
   Settings.RefreshInterval:=100;
-  Settings.UnitID_DB:=255;
-  Settings.DisOnError:=true;
+  Settings.UnitID_DB := 255;
+  Settings.DB_RD     := 100;
+  Settings.DB_WR     := 101;
+  Settings.UseUnitID := true;
+  Settings.DisOnError:= true;
   Settings.BaseAddressZero:=false;
   // Modbus/TCP
   Settings.MBTCPParams.Address:='127.0.0.1';
@@ -234,6 +246,12 @@ begin
   SetAddressLegend;
 end;
 
+procedure TCommSettingsForm.chkDBChange(Sender: TObject);
+begin
+  speDBRD.Enabled:=chkDB.Checked;
+  speDBWR.Enabled:=chkDB.Checked;
+end;
+
 procedure TCommSettingsForm.FormCreate(Sender: TObject);
 begin
   InitComboBoxes;
@@ -251,6 +269,23 @@ begin
 end;
 
 procedure TCommSettingsForm.Label18Click(Sender: TObject);
+begin
+
+end;
+
+procedure TCommSettingsForm.PCChange(Sender: TObject);
+begin
+
+end;
+
+procedure TCommSettingsForm.TabSheet1ContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
+end;
+
+procedure TCommSettingsForm.TabSheet3ContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
 begin
 
 end;
@@ -290,7 +325,7 @@ end;
 
 procedure TCommSettingsForm.UpdateProtocol;
 begin
-  PC.ActivePageIndex:=cbProtocol.ItemIndex;
+  PC.TabIndex:=cbProtocol.ItemIndex;
   if cbMode.ItemIndex = 0 then
   begin
     pnlClient.Visible:=true;
@@ -376,6 +411,13 @@ begin
   speSlot.Value:=Settings.S7ISOParams.Slot;
   cbConnectionType.ItemIndex:=Settings.S7ISOParams.ConnectionType-1;
 
+  ChkDB.Checked:=not Settings.UseUnitID;
+  speDBRD.Value:=Settings.DB_RD;
+  speDBWR.Value:=Settings.DB_WR;
+
+  speDBRD.Enabled:=not Settings.UseUnitID;
+  speDBWR.Enabled:=not Settings.UseUnitID;
+
   UpdateCBProtocol;
   cbProtocol.ItemIndex:=ord(Settings.ProtocolType);
   UpdateProtocol;
@@ -408,6 +450,11 @@ begin
   Settings.S7ISOParams.Rack:=speRack.Value;
   Settings.S7ISOParams.Slot:=speSlot.Value;
   Settings.S7ISOParams.ConnectionType:=cbConnectionType.ItemIndex+1;
+
+  Settings.UseUnitID:=not ChkDB.Checked;
+  Settings.DB_RD:=speDBRD.Value;
+  Settings.DB_WR:=speDBWR.Value;
+
 end;
 
 end.

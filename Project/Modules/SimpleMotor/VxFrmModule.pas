@@ -16,7 +16,10 @@ Const
 
 Type
 
+  TMechanics = (mecLinear, mecRotary);
+
   TMotorParams = record
+    Mechanics     : TMechanics;
     Ctrl_Reg      : word;  // input
     SetPos_Reg    : word;  // input
     Status_Reg    : word;  // output
@@ -45,7 +48,7 @@ Type
     lblSpeed_umis1: TLabel;
     LedCom_4: TuELED;
     Motor: TBGRAKnob;
-    Label1: TLabel;
+    lblStop: TLabel;
     Label10: TLabel;
     lblHome_OUT: TLabel;
     Label12: TLabel;
@@ -55,15 +58,15 @@ Type
     Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
-    Label2: TLabel;
+    lblMoveCCW: TLabel;
     Label20: TLabel;
     Label21: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lblMoveCW: TLabel;
+    lblMovePos: TLabel;
     Label5: TLabel;
-    Label6: TLabel;
-    Label7: TLabel;
-    Label8: TLabel;
+    lblMovingCCW: TLabel;
+    lblMovingCW: TLabel;
+    lblDonePos: TLabel;
     Label9: TLabel;
     lblSpeed_umis: TLabel;
     lblStatus: TLabel;
@@ -178,7 +181,8 @@ Const
 
   TestULeds : array[0..7] of TColor = ($000080FF, clLime, clLime, clLime, clLime, clLime, clLime, clLime);
 
-  StateTxt    : array[TMotorState] of string = ('READY', 'MOVE UP', 'MOVE DN', 'MOVE POS', 'NOT READY');
+  StateTxtLin : array[TMotorState] of string = ('READY', 'MOVE UP', 'MOVE DN', 'MOVE POS', 'NOT READY');
+  StateTxtRot : array[TMotorState] of string = ('READY', 'MOVE CCW', 'MOVE CW', 'MOVE POS', 'NOT READY');
   StateColors : array[TMotorState] of TColor = ( clLime, clAqua, clAqua, $000080FF, $00C080FF);
 
   I_STOP      = 0;
@@ -337,6 +341,7 @@ procedure TVxForm.SetDefaultParams;
 begin
   with Params do
   begin
+    Mechanics     := mecLinear;
     Ctrl_Reg      := 1;
     SetPos_Reg    := 2;
     Status_Reg    := 3;
@@ -359,8 +364,37 @@ begin
   MLinearPos := MCurrentPos;
 
   ParamsApplied:=true;
+
+  if Params.Mechanics = mecLinear then
+  begin
+    lblStop.Caption     :='STOP';
+    lblMoveCW.Caption   :='MOVE DN';
+    lblMoveCCW.Caption  :='MOVE UP';
+    lblMovePos.Caption  :='MOVE POS';
+    lblMovingCCW.Caption:='MOVING UP';
+    lblMovingCW.Caption :='MOVING DN';
+    lblDonePos.Caption  :='DONE POS';
+    pnlScrew.Visible    :=true;
+    pnlValues.Width     :=183;
+    pnlStatus.Width     :=183;
+  end
+  else begin
+    lblStop.Caption     :='-';
+    lblMoveCW.Caption   :='MOVE CW';
+    lblMoveCCW.Caption  :='MOVE CCW';
+    lblMovePos.Caption  :='-';
+    lblMovingCCW.Caption:='MOVING CCW';
+    lblMovingCW.Caption :='MOVING CW';
+    lblDonePos.Caption  :='-';
+
+    pnlScrew.Visible    :=false;
+    pnlValues.Width     :=256;
+    pnlStatus.Width     :=256;
+  end;
+
   UpdatePanel;
   UpdateBearing;
+
   lblName.Hint:=
     'Read Registers'+#13+
     '  Control Reg   : '+IntToStr(Params.Ctrl_Reg)+#13+
@@ -368,6 +402,7 @@ begin
     'Write Registers'+#13+
     '  Status  Reg   : '+IntToStr(Params.Status_Reg)+#13+
     '  Cur Pos Reg   : '+IntToStr(Params.CurPos_Reg);
+
 end;
 
 procedure TVxForm.SetFIndex(AValue: integer);
@@ -387,7 +422,10 @@ end;
 procedure TVxForm.SetFState(AValue: TMotorState);
 begin
   FState:=AValue;
-  lblStatus.Caption:=StateTxt[FState];
+  if Params.Mechanics=mecLinear then
+    lblStatus.Caption:=StateTxtLin[FState]
+  else
+    lblStatus.Caption:=StateTxtRot[FState];
   lblStatus.Font.Color:=StateColors[FState];
 end;
 
@@ -405,7 +443,12 @@ Var
   c : integer;
 begin
   lblSpeedSet.Caption:=inttostr(Params.SpeedSet);
-  lblCurrentPos.Caption:=inttostr(WCurrentPos);
+
+  if Params.Mechanics = mecLinear then
+    lblCurrentPos.Caption:=inttostr(WCurrentPos)
+  else
+    lblCurrentPos.Caption:='---';
+
   if Mission.TargetPos<0 then
     lblPosSet.Caption:='---'
   else
@@ -475,7 +518,7 @@ begin
     State := msReady;
   end;
 
-  if (State = msMoveUP) and (MCurrentPos>=Params.ScrewLength) then
+  if (State = msMoveUP) and (Params.Mechanics=mecLinear) and (MCurrentPos>=Params.ScrewLength) then
   begin
     MCurrentPos:=Params.ScrewLength;
     State := msNotReady;
@@ -495,14 +538,14 @@ begin
     State := msReady;
   end;
 
-  if (State = msMoveDN) and (MCurrentPos<=0) then
+  if (State = msMoveDN) and (Params.Mechanics=mecLinear) and (MCurrentPos<=0) then
   begin
     MCurrentPos:=0;
     State := msNotReady;
   end;
 
   // Move TO POS : start
-  if (State = msReady) and XI[I_MOVE_POS] and not XI[I_MOVE_UP] and not XI[I_MOVE_DN] and not XI[I_STOP] then
+  if (State = msReady) and (Params.Mechanics=mecLinear) and XI[I_MOVE_POS] and not XI[I_MOVE_UP] and not XI[I_MOVE_DN] and not XI[I_STOP] then
   begin
     if SetPosWord <> $FFFF then
     begin
@@ -564,8 +607,15 @@ begin
   if MCurrentPos < 0 then
     MCurrentPos := 0.0;
 
-  MotorMovingCCW := ((State = msMoveUP) or ((State = msMovePOS) and (Mission.Direction = dirUP))) and (MCurrentPos<Params.ScrewLength);
-  MotorMovingCW  := ((State = msMoveDN) or ((State = msMovePOS) and (Mission.Direction = dirDN))) and (MCurrentPos>0);
+  if (Params.Mechanics=mecLinear) then
+  begin
+    MotorMovingCCW := ((State = msMoveUP) or ((State = msMovePOS) and (Mission.Direction = dirUP))) and (MCurrentPos<Params.ScrewLength);
+    MotorMovingCW  := ((State = msMoveDN) or ((State = msMovePOS) and (Mission.Direction = dirDN))) and (MCurrentPos>0);
+  end
+  else begin
+    MotorMovingCCW := (State = msMoveUP);
+    MotorMovingCW  := (State = msMoveDN);
+  end;
 
 //-----------------------------------------------------------------
   MLinearPos  := MCurrentPos;         // Display
@@ -638,6 +688,7 @@ begin
   begin
     ini:=TMemIniFile.Create(FileName);
     try
+      Params.Mechanics    :=TMechanics(ini.ReadInteger(Section,'Mechanics',ord(Params.Mechanics)));
       Params.Ctrl_Reg     :=ini.ReadInteger(Section,'Ctrl_Reg',Params.Ctrl_Reg);
       Params.SetPos_Reg   :=ini.ReadInteger(Section,'SetPos_Reg',Params.SetPos_Reg);
       Params.Status_Reg   :=ini.ReadInteger(Section,'Status_Reg',Params.Status_Reg);
@@ -660,6 +711,7 @@ begin
   ini:=TMemIniFile.Create(FileName);
   try
     ini.WriteString(Section, 'ModuleName', FName);
+    ini.WriteInteger(Section,'Mechanics',ord(Params.Mechanics));
     ini.WriteInteger(Section,'Ctrl_Reg',Params.Ctrl_Reg);
     ini.WriteInteger(Section,'SetPos_Reg',Params.SetPos_Reg);
     ini.WriteInteger(Section,'Status_Reg',Params.Status_Reg);

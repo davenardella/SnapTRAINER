@@ -8,10 +8,9 @@
       <Unit>
         <Filename Value="module_testunit.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="41" Y="29"/>
         <UsageCount Value="35"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmSettings.pas"/>
@@ -19,7 +18,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="1"/>
         <TopLine Value="104"/>
         <CursorPos Y="109"/>
         <UsageCount Value="24"/>
@@ -105,11 +104,10 @@
       </Unit>
       <Unit>
         <Filename Value="VxExports.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos X="25" Y="101"/>
         <UsageCount Value="13"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmModule.pas"/>
@@ -152,11 +150,10 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos X="10" Y="39"/>
         <UsageCount Value="14"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxTypes.pas"/>
@@ -277,14 +274,13 @@
       </Unit>
       <Unit>
         <Filename Value="..\StepperMotor\VxFrmModule.pas"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="199"/>
         <CursorPos X="167" Y="220"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="415" TopLine="411"/>
@@ -384,10 +380,6 @@
       <Position>
         <Filename Value="VxFrmSettings.pas"/>
         <Caret Line="109" TopLine="104"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="52" Column="5" TopLine="26"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>

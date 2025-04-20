@@ -18,6 +18,7 @@
         <ComponentName Value="ControllerSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <TopLine Value="196"/>
         <CursorPos Y="216"/>
@@ -115,7 +116,6 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="9"/>
         <CursorPos X="16" Y="9"/>
         <UsageCount Value="20"/>

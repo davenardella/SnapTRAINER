@@ -8,19 +8,17 @@
       <Unit>
         <Filename Value="module_numkeypad.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="50" Y="2"/>
-        <UsageCount Value="75"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="76"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmSettings.pas"/>
         <ComponentName Value="NumericKeypadForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="16"/>
-        <CursorPos X="19" Y="116"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="23" Y="38"/>
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -113,8 +111,9 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="240"/>
-        <CursorPos X="4" Y="255"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="152"/>
+        <CursorPos X="3" Y="155"/>
         <UsageCount Value="36"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -149,17 +148,18 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="97"/>
-        <CursorPos X="16" Y="120"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="7"/>
+        <CursorPos Y="38"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxTypes.pas"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="27" Y="3"/>
+        <CursorPos X="3" Y="15"/>
         <UsageCount Value="11"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Main\VxController.pas"/>
@@ -289,10 +289,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="194"/>
-        <CursorPos X="46" Y="197"/>
+        <TopLine Value="116"/>
+        <CursorPos X="15" Y="133"/>
         <UsageCount Value="10"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="..\Cylinders\VxFrmModule.pas"/>
@@ -362,136 +361,134 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="16" Y="94"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\PushKeypad\VxFrmModule.pas"/>
+        <ComponentName Value="VxForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="211"/>
+        <CursorPos Y="222"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="26">
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="79" Column="15" TopLine="78"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="207" Column="13" TopLine="181"/>
+        <Caret Line="85" Column="17" TopLine="63"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="79" Column="21" TopLine="78"/>
+        <Caret Line="349" Column="3" TopLine="346"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="208" TopLine="194"/>
+        <Caret Line="52" Column="15" TopLine="44"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="207" TopLine="193"/>
+        <Caret Line="163" Column="3" TopLine="154"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="195" Column="5" TopLine="193"/>
+        <Caret Line="161" Column="10" TopLine="74"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="75" Column="18" TopLine="49"/>
+        <Caret Line="84" Column="15" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="299" Column="27" TopLine="270"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="108" Column="17" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="45" Column="68" TopLine="28"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="126" Column="21" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="108" Column="10" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\Lib\VxUtils.pas"/>
-        <Caret Line="45" Column="93" TopLine="45"/>
+        <Caret Line="160" TopLine="147"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="79" Column="21" TopLine="63"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="38" Column="15" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="39" Column="19" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="116" Column="12" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="117" Column="12" TopLine="92"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="116" Column="12" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="115" Column="12" TopLine="90"/>
+        <Caret Line="159" TopLine="146"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="224" Column="11" TopLine="202"/>
+        <Caret Line="173" Column="23" TopLine="131"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="75" Column="15" TopLine="58"/>
+        <Caret Line="85" Column="15" TopLine="71"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="238" Column="3" TopLine="232"/>
+        <Caret Line="347" Column="3" TopLine="344"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="255" Column="25" TopLine="233"/>
+        <Caret Line="87" Column="15" TopLine="69"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="77" Column="15" TopLine="64"/>
+        <Caret Line="368" Column="3" TopLine="364"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="251" TopLine="240"/>
-      </Position>
-      <Position>
-        <Filename Value="module_numkeypad.lpr"/>
-        <Caret Line="3" Column="68"/>
+        <Caret Line="92" Column="14" TopLine="76"/>
       </Position>
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="255" Column="4" TopLine="240"/>
+        <Caret Line="83" Column="15" TopLine="77"/>
       </Position>
       <Position>
-        <Filename Value="..\CoinMachine\VxFrmModule.pas"/>
-        <Caret Line="104" Column="3" TopLine="87"/>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="87" Column="22" TopLine="76"/>
       </Position>
       <Position>
-        <Filename Value="..\CoinMachine\VxFrmModule.pas"/>
-        <Caret Line="98" Column="57" TopLine="88"/>
+        <Filename Value="..\PushKeypad\VxFrmModule.pas"/>
+        <Caret Line="107" Column="16" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="..\PushKeypad\VxFrmModule.pas"/>
+        <Caret Line="234" Column="3" TopLine="230"/>
+      </Position>
+      <Position>
+        <Filename Value="..\PushKeypad\VxFrmModule.pas"/>
+        <Caret Line="84" Column="15" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="367" Column="3" TopLine="364"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="52" Column="15" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="157" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="85" Column="15" TopLine="60"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="352" TopLine="344"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="351" TopLine="343"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="350" TopLine="342"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="50" Column="17" TopLine="36"/>
       </Position>
     </JumpHistory>
     <RunParams>

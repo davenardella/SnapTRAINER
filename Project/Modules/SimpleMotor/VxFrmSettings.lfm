@@ -1,11 +1,11 @@
 object SettingsForm: TSettingsForm
-  Left = 1082
-  Height = 651
-  Top = 196
+  Left = 607
+  Height = 686
+  Top = 141
   Width = 563
   BorderStyle = bsToolWindow
   Caption = 'Settings'
-  ClientHeight = 651
+  ClientHeight = 686
   ClientWidth = 563
   Color = clWhite
   OnCreate = FormCreate
@@ -16,7 +16,7 @@ object SettingsForm: TSettingsForm
   object Panel1: TPanel
     Left = 0
     Height = 46
-    Top = 605
+    Top = 640
     Width = 563
     Align = alBottom
     BevelOuter = bvNone
@@ -568,11 +568,11 @@ object SettingsForm: TSettingsForm
   end
   object GroupBox1: TGroupBox
     Left = 8
-    Height = 137
-    Top = 199
+    Height = 148
+    Top = 224
     Width = 544
     Caption = 'Write Registers (Module -> PLC)'
-    ClientHeight = 117
+    ClientHeight = 128
     ClientWidth = 540
     Font.Style = [fsBold]
     ParentBackground = False
@@ -600,17 +600,17 @@ object SettingsForm: TSettingsForm
     end
     object Label2: TLabel
       Left = 301
-      Height = 77
-      Top = 3
-      Width = 147
+      Height = 94
+      Top = 2
+      Width = 227
       AutoSize = False
-      Caption = 'Bit 0       -> READY'#13#10'Bit 1       -> MOVING UP'#13#10'Bit 2       -> MOVING DN'#13#10'Bit 3       -> DONE POS'#13#10'Bit 4..15 -> UNUSED'
+      Caption = '                    Linear                  Rotary'#13#10'Bit 0       -> READY                 READY'#13#10'Bit 1       -> MOVING UP       MOVING CCW'#13#10'Bit 2       -> MOVING DN      MOVING CW'#13#10'Bit 3       -> DONE POS         UNUSED'#13#10'Bit 4..15 -> UNUSED             UNUSED'
       ParentFont = False
     end
     object Label19: TLabel
       Left = 14
       Height = 15
-      Top = 82
+      Top = 98
       Width = 135
       Caption = 'Currrent Position Register'
       ParentColor = False
@@ -619,7 +619,7 @@ object SettingsForm: TSettingsForm
     object speCurPos_Reg: TSpinEdit
       Left = 165
       Height = 23
-      Top = 78
+      Top = 94
       Width = 106
       Color = clInfoBk
       MaxValue = 65535
@@ -630,11 +630,11 @@ object SettingsForm: TSettingsForm
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Height = 132
+    Height = 160
     Top = 56
     Width = 544
     Caption = 'Read Registers (PLC -> Module)'
-    ClientHeight = 112
+    ClientHeight = 140
     ClientWidth = 540
     Font.Style = [fsBold]
     ParentBackground = False
@@ -662,17 +662,17 @@ object SettingsForm: TSettingsForm
     end
     object Label3: TLabel
       Left = 301
-      Height = 83
-      Top = 5
-      Width = 121
+      Height = 99
+      Top = 4
+      Width = 227
       AutoSize = False
-      Caption = 'Bit 0       -> STOP'#13#10'Bit 1       -> MOVE UP'#13#10'Bit 2       -> MOVE DN'#13#10'Bit 3       -> MOVE TO POS'#13#10'Bit 4..15 -> UNUSED'
+      Caption = '                    Linear                  Rotary'#13#10'Bit 0       -> STOP                    UNUSED'#13#10'Bit 1       -> MOVE UP            MOVE CCW'#13#10'Bit 2       -> MOVE DN           MOVE CW'#13#10'Bit 3       -> MOVE TO POS    UNUSED'#13#10'Bit 4..15 -> UNUSED              UNUSED '
       ParentFont = False
     end
     object Label20: TLabel
-      Left = 14
+      Left = 16
       Height = 15
-      Top = 78
+      Top = 102
       Width = 107
       Caption = 'Set Position Register'
       ParentColor = False
@@ -681,7 +681,7 @@ object SettingsForm: TSettingsForm
     object speSetPos_Reg: TSpinEdit
       Left = 165
       Height = 23
-      Top = 74
+      Top = 98
       Width = 106
       Color = clInfoBk
       MaxValue = 65535
@@ -693,7 +693,7 @@ object SettingsForm: TSettingsForm
   object lblError: TLabel
     Left = 0
     Height = 18
-    Top = 587
+    Top = 622
     Width = 563
     Align = alBottom
     Alignment = taCenter
@@ -708,7 +708,7 @@ object SettingsForm: TSettingsForm
   object GroupBox3: TGroupBox
     Left = 8
     Height = 241
-    Top = 341
+    Top = 376
     Width = 544
     Caption = 'Motor'
     ClientHeight = 221
@@ -720,7 +720,7 @@ object SettingsForm: TSettingsForm
     object Label16: TLabel
       Left = 23
       Height = 15
-      Top = 6
+      Top = 78
       Width = 91
       Caption = 'Speed (units/sec)'
       ParentColor = False
@@ -1007,7 +1007,7 @@ object SettingsForm: TSettingsForm
     object speSpeedSet: TSpinEdit
       Left = 24
       Height = 23
-      Top = 23
+      Top = 95
       Width = 106
       Color = clInfoBk
       MaxValue = 65535
@@ -1015,6 +1015,32 @@ object SettingsForm: TSettingsForm
       ParentFont = False
       TabOrder = 0
       Value = 100
+    end
+    object Label18: TLabel
+      Left = 23
+      Height = 15
+      Top = 6
+      Width = 57
+      Caption = 'Mechanics'
+      ParentColor = False
+      ParentFont = False
+    end
+    object cbMechanics: TComboBox
+      Left = 23
+      Height = 23
+      Top = 24
+      Width = 184
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Linear (Rotary + Spiral Screw)'
+        'Rotary (Endless movement)'
+      )
+      ParentFont = False
+      Style = csDropDownList
+      TabOrder = 2
+      Text = 'Linear (Rotary + Spiral Screw)'
+      OnCloseUp = cbMechanicsCloseUp
     end
   end
 end

@@ -16,10 +16,12 @@ type
     btnCancel: TBCButton;
     btnAccept: TBCButton;
     btnBack: TBCButton;
+    cbMechanics: TComboBox;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     GroupBox3: TGroupBox;
     Img_mm: TImage;
+    Label18: TLabel;
     Label20: TLabel;
     lblMin: TLabel;
     Label16: TLabel;
@@ -47,6 +49,7 @@ type
     procedure btnAcceptClick(Sender: TObject);
     procedure btnBackClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure cbMechanicsCloseUp(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -105,6 +108,11 @@ begin
   ModalResult:=mrCancel;
 end;
 
+procedure TSettingsForm.cbMechanicsCloseUp(Sender: TObject);
+begin
+  pnl_mm.Visible  :=cbMechanics.ItemIndex=0;
+end;
+
 procedure TSettingsForm.FormCreate(Sender: TObject);
 begin
 end;
@@ -157,6 +165,8 @@ begin
   speCurPos_Reg.Value:=Params.CurPos_Reg;
   speSpeedSet.Value  :=Params.SpeedSet;
   speScrewLength.Value:=Params.ScrewLength;
+  cbMechanics.ItemIndex:=ord(Params.Mechanics);
+  pnl_mm.Visible  :=cbMechanics.ItemIndex=0;
 end;
 
 procedure TSettingsForm.FormToParams;
@@ -167,6 +177,7 @@ begin
   Params.CurPos_Reg:=speCurPos_Reg.Value;
   Params.SpeedSet  :=speSpeedSet.Value;
   Params.ScrewLength:=round(speScrewLength.Value);
+  Params.Mechanics:=TMechanics(cbMechanics.ItemIndex);
 end;
 
 end.
