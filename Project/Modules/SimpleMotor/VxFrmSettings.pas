@@ -130,26 +130,9 @@ end;
 
 function TSettingsForm.CheckSettings: boolean;
 begin
-  if (speCtrl_Reg.Value = speSetPos_Reg.Value) or
-     (speCtrl_Reg.Value = speStatus_Reg.Value) or
-     (speCtrl_Reg.Value = speCurPos_Reg.Value) then
-  begin
-    lblError.Caption:='Registers must be different';
-    Result:=false;
-    exit;
-  end;
-
-  if (speSetPos_Reg.Value = speStatus_Reg.Value) or
-     (speSetPos_Reg.Value = speCurPos_Reg.Value) then
-  begin
-    lblError.Caption:='Registers must be different';
-    Result:=false;
-    exit;
-  end;
-
   if (speStatus_Reg.Value = speCurPos_Reg.Value) then
   begin
-    lblError.Caption:='Registers must be different';
+    lblError.Caption:='Write Registers must be different';
     Result:=false;
     exit;
   end;

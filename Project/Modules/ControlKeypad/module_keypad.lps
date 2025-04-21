@@ -18,9 +18,8 @@
         <ComponentName Value="ControllerSettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="196"/>
+        <TopLine Value="186"/>
         <CursorPos Y="216"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
@@ -116,8 +115,9 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="9"/>
-        <CursorPos X="16" Y="9"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="212"/>
+        <CursorPos X="3" Y="214"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -313,30 +313,6 @@
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="37" TopLine="26"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="141" Column="20" TopLine="132"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="475" Column="5" TopLine="447"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="132" Column="15" TopLine="105"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="142" Column="12" TopLine="127"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
-        <Caret Line="25" Column="36" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmModule.pas"/>
         <Caret Line="469" Column="30" TopLine="454"/>
       </Position>
       <Position>
@@ -430,6 +406,30 @@
       <Position>
         <Filename Value="VxFrmModule.pas"/>
         <Caret Line="243" Column="3" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="9" Column="16" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="714" Column="59" TopLine="680"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="685" Column="53" TopLine="663"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="68" Column="16" TopLine="52"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="176" Column="3" TopLine="167"/>
+      </Position>
+      <Position>
+        <Filename Value="VxFrmModule.pas"/>
+        <Caret Line="74" Column="14" TopLine="57"/>
       </Position>
     </JumpHistory>
     <RunParams>

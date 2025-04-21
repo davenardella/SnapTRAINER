@@ -8,10 +8,9 @@
       <Unit>
         <Filename Value="module_simplemotor.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="39" Y="29"/>
         <UsageCount Value="123"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmSettings.pas"/>
@@ -19,9 +18,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="150"/>
-        <CursorPos X="15" Y="161"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="130"/>
+        <CursorPos Y="140"/>
         <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -105,11 +104,10 @@
       </Unit>
       <Unit>
         <Filename Value="VxExports.pas"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="81"/>
         <CursorPos X="31" Y="95"/>
         <UsageCount Value="28"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="VxFrmModule.pas"/>
@@ -162,10 +160,9 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\Lib\VxTypes.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="47" Y="16"/>
         <UsageCount Value="19"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\Main\VxController.pas"/>
@@ -359,34 +356,23 @@
         <ComponentName Value="VxForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="932"/>
         <CursorPos Y="952"/>
         <UsageCount Value="16"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\StepperMotor\VxFrmSettings.pas"/>
         <ComponentName Value="SettingsForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="211"/>
-        <CursorPos Y="245"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="149"/>
+        <CursorPos Y="182"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="..\StepperMotor\VxFrmSettings.pas"/>
-        <Caret Line="78" Column="17" TopLine="64"/>
-      </Position>
-      <Position>
-        <Filename Value="VxFrmSettings.pas"/>
-        <Caret Line="183" TopLine="152"/>
-      </Position>
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="VxFrmSettings.pas"/>
         <Caret Line="111" TopLine="111"/>
